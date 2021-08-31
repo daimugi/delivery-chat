@@ -10,7 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_28_164926) do
+ActiveRecord::Schema.define(version: 2021_08_31_055408) do
+
+  create_table "clerks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "clerk_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["clerk_id"], name: "index_rooms_on_clerk_id"
+    t.index ["user_id", "clerk_id"], name: "index_rooms_on_user_id_and_clerk_id", unique: true
+    t.index ["user_id"], name: "index_rooms_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
@@ -20,4 +46,6 @@ ActiveRecord::Schema.define(version: 2021_08_28_164926) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "rooms", "clerks"
+  add_foreign_key "rooms", "users"
 end

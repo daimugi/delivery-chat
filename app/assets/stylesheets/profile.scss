@@ -1,0 +1,36 @@
+.parent {
+  float: left;
+  margin: 20px;
+}
+
+.profile {
+  display: inline-block;
+  background: #FFF;
+  width: 300px;
+  padding: 2rem;
+  border: 1px solid #1a1a1a;
+}
+
+.profile__img {
+  display: block;
+  width: 160px;
+  height: 160px;
+  border-radius:50%;
+  margin: 0 auto;
+}
+
+.profile__name {
+  text-align:center;
+  font-weight:bold;
+  font-size:1.2rem;
+  margin: 1rem auto 1rem;
+  letter-spacing:.1rem;
+}
+
+.profile__desc {
+  line-height:1.6rem;
+}
+
+.under-element {
+  clear: both;
+}
