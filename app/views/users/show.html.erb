@@ -3,3 +3,17 @@
   <div class="profile__name"><%= @user.name %></div>
   <div class="profile__desc">ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。</div>
 </div>
+
+<% unless @user.id == current_user.id %>
+  <% if @isRoom == true %>
+    <p class="user-show-room"><a href="/rooms/<%= @roomID %>" class="btn bnt-primary btn-lg">チャットへ</a></p>
+  <% else %>
+    <%= form_for @room do |f| %>
+      <%= fields_for @entry do |e| %>
+        <%= e.hidden_field :user_id, value: @user.id %>
+      <% end %>
+      <%= f.submit 'チャットを始める', class: "btn btn-primary btn-lg user-show-chat" %>
+    <% end %>
+  <% end %>
+<% end %>  
+    

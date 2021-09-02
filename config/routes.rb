@@ -8,20 +8,6 @@ Rails.application.routes.draw do
  
  get 'signup', to: 'users#new'
  resources :users, only: [:index, :show, :create]
- 
- 
- get 'join', to: 'records#new'
- post 'join', to: 'records#create'
- delete 'leave', to: 'records#destroy'
- 
- get 'contact', to: 'customers#new'
- 
- resources :customers, only: [:index, :show, :create]
- 
- # devise_for :customers, controllers: {
- #  sessions: 'customers/sessions',
- #  # password: 'customers/passwords',
- #  registorations: 'customers/registrations'
- # } 
-     
+ resources :messages, only: [:create]
+ resources :rooms, only: [:show, :create]
 end
