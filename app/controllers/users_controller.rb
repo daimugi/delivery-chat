@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
-  before_action :require_user_logged_in, only: [:index, :show]
+  before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
+  before_action :correct_user, only: [:edit, :update]
+  
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(20)
@@ -40,13 +42,35 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザーの登録に失敗しました'
       render :new
     end  
+  end  
+    
+  def edit
+    @user = User.find(params[:id])
+  end  
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      flash[:success] = 'ユーザー情報が更新されました'
+      redirect_to root_url
+    else 
+      flash.now[:danger] = 'ユーザー情報が更新されませんでした'
+      render :edit
+    end  
   end
   
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
   end 
+  
+  def correct_user
+    @user = current_user
+    unless @user
+      redirect_to root_url
+    end  
+  end  
   
 end
   

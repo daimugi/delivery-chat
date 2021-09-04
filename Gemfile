@@ -54,3 +54,5 @@ gem 'kaminari'
 gem 'devise'
 gem "font-awesome-rails"
 gem 'font-awesome-sass'
+gem 'mini_magick'
+gem 'carrierwave'

@@ -4,6 +4,7 @@ class User < ApplicationRecord
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
                     uniqueness: { case_sensitive: false }
   has_secure_password
+  mount_uploader :image, ImageUploader
   
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy

@@ -3,7 +3,11 @@
   <% users.each do |user| %>
   <div class="parent">
     <div class="profile">
-      <img class="profile__img" src="画像のURL">
+      <% if user.image? %>
+        <%= image_tag user.image.url, size: '160x160', class: 'profile__image', :alt => '/' %>
+      <% else %>
+        <%= image_tag ('images.png'), :alt => '/' %>
+      <% end %>  
       <div class="profile__name"><%= user.name %></div>
       <div class="profile__desc">ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。</div>
       <%= link_to 'プロフィール', user_path(user) %>
