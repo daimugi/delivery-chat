@@ -56,3 +56,7 @@ gem "font-awesome-rails"
 gem 'font-awesome-sass'
 gem 'mini_magick'
 gem 'carrierwave'
+gem 'geocoder'
+gem 'geokit-rails'
+gem 'jquery-rails'
+gem 'dotenv-rails'

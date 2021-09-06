@@ -59,6 +59,13 @@ class UsersController < ApplicationController
     end  
   end
   
+  def serch 
+    latitude = params[:latitude]
+    longitude = params[:longitude]
+    
+    @places = User.all.within(2, origin: [latitude, longitude])
+  end  
+  
   private
   
   def user_params

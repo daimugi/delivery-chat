@@ -8,4 +8,7 @@ class User < ApplicationRecord
   
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
 end

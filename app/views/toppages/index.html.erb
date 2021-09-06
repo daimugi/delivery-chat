@@ -2,7 +2,14 @@
   <h1>DeliveryChat</h1>
   <img src="/assets/toppage.jpg" alt="/">
 </div>
+<p>jQuery稼働テスト(未稼働)</p>
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("p").text("jQuery稼働テスト(稼働中)");
+  });
+</script>
 <% if logged_in? %>
+  <%= link_to 'google map', maps_path %>
   <%= render 'users/users', users: @users %>
 <% end %>
 

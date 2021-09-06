@@ -1,5 +1,7 @@
+<div class="currentLocation">
+  <%= button_tag '現在地から探す', type: 'button' %>
+</div>
 <% if users.any? %>
-<ul class="list-unstyled">
   <% users.each do |user| %>
   <div class="parent">
     <div class="profile">
@@ -14,6 +16,5 @@
     </div>
   </div>
   <% end %>
-</ul>
 <%= paginate users %>
 <% end %>
