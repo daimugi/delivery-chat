@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_05_044740) do
+ActiveRecord::Schema.define(version: 2021_09_06_031443) do
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -47,6 +47,8 @@ ActiveRecord::Schema.define(version: 2021_09_05_044740) do
     t.integer "status"
     t.string "image"
     t.string "address"
+    t.float "latitude"
+    t.float "longitude"
   end
 
   add_foreign_key "entries", "rooms"

@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    gon.user = @user
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
     unless @user.id == current_user.id 
@@ -59,17 +60,17 @@ class UsersController < ApplicationController
     end  
   end
   
-  def serch 
-    latitude = params[:latitude]
-    longitude = params[:longitude]
+  # def serch 
+  #   latitude = params[:latitude]
+  #   longitude = params[:longitude]
     
-    @places = User.all.within(2, origin: [latitude, longitude])
-  end  
+  #   @places = User.all.within(2, origin: [latitude, longitude])
+  # end  
   
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :address)
   end 
   
   def correct_user

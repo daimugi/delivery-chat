@@ -6,10 +6,10 @@
     <title>DeliveryChat</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    
+    <%= include_gon(:init => true) %>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAlBdTmyUTXmvsKU3TkIIvTfcTw8TakWxk&callback=initMap" async defer></script>
-
     <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'layouts', media: 'all' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
