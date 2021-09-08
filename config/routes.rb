@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :maps
  root to: 'toppages#index'
  
  

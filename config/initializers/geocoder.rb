@@ -1,3 +1,5 @@
 Geocoder.configure(
   lookup: :google,
-  api_key: ENV['GOOGLE_MAP_API'])
+  api_key: 'AIzaSyDVrMNgRxuKhJNYqvsHIpL9Nk2fX8ELDsc',
+  use_https: true
+)  

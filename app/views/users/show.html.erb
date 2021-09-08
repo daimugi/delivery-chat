@@ -9,8 +9,44 @@
 </div>
 <% if @user == current_user %>
   <%= link_to '編集する', edit_user_path(@user) %>
-<% end %>  
-  
+<% end %>
+
+<h2>gmap</h2>
+<%= current_user.address %>
+<%= @address %>
+<div id='map'></div>
+<style>
+  #map{
+    height: 400px;
+    width: 400px;
+  }
+</style>
+<script type="text/javascript">
+  let map;
+
+  function initMap() {
+    geocoder = new google.maps.Geocoder()
+    
+    map = new google.maps.Map(document.getElementById('map'), {
+      // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+      center: {
+        lat: gon.user.latitude,
+        lng: gon.user.longitude
+      },
+      zoom: 15,
+    });
+
+    marker = new google.maps.Marker({
+      // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+      position: {
+        lat: gon.user.latitude,
+        lng: gon.user.longitude
+      },
+      map: map
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVrMNgRxuKhJNYqvsHIpL9Nk2fX8ELDsc&callback=initMap" async defer></script>
   
 <% unless @user.id == current_user.id %>
   <% if @isRoom == true %>

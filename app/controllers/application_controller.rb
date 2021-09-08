@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   
-  # @user = User.find(params[:id])
+  # def gon_user
+  #   @user = User.find(params[:id])
+  #   gon.user = @user
+  # end  
   
   private
 
