@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   
-  before_action :require_user_logged_in  
+  before_action :require_user_logged_in, only: [:create]
   
   def create
     if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?

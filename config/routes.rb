@@ -13,5 +13,4 @@ Rails.application.routes.draw do
  resources :users, only: [:index, :show, :create, :edit, :update]
  resources :messages, only: [:create]
  resources :rooms, only: [:show, :create]
- resources :maps, only: [:index]
 end

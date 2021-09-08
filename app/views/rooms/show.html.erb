@@ -1,44 +1,42 @@
 <div class="left-button">
-  <%= link_to 'ユーザー一覧に戻る', users_path, class: 'edit-link' %>
 </div>
-<h4 class="room-title">気になる同士</h4>
+<h4 class="rooms-title">気になる同士</h4>
 <% @entries.each do |e| %>
   <div class="user-name">
-    <strong>
-      <% if e.user.image? %>
-        <%= image_tag e.user.image.url, class: 'profile_image' %>
+  <strong>
+    <% if e.user.image? %>
+        <%= image_tag e.user.image.url, size: '160x160', class: 'profile__image', :alt => '/' %>
       <% else %>
-        <%= image_tag ('images.png') %>
-      <% end %>
+        <%= image_tag ('images.png'), :alt => '/' %>
+      <% end %>  
       <a class="rooms-user-link" href="/users/<%= e.user.id %>">
         <%= e.user.name %>さん
       </a>
-    </strong>
+  </strong>
   </div>
 <% end %>
 <hr>
-<div class="chat">
-  <% if @messages.present? %>
-    <% @entries.each do |e| %>
+<div class="chats">
+  <div class="chat">
+    <% if @messages.present? %>
       <% @messages.each do |m| %>
-      <div class="chat-box">
-        <div class="chat-face">
-          
+        <div class="chat-box">
+          <div class="chat-face">
+          </div>
+          <div class="chat-hukidashi"> 
+            <%= m.user.name %>
+            <%= m.created_at.strftime("%Y-%m-%d %H:%M")%> <br>
+            <strong><%= m.content %></strong> 
+          </div>
         </div>
-        <div class="chat-hukidashi"> 
-          <%= m.created_at.strftime("%Y-%m-%d %H:%M")%>
-          <%= e.user.name %> <br>
-          <strong><%= m.content %></strong> <br>
-        </div>
-      </div>
       <% end %>
     <% end %>
-  <% end %>  
-</div>
-<div class="posts">
-  <%= form_for @message do |f| %>
-    <%= f.text_field :content, placeholder: "メッセージを入力して下さい", size: 70, class: "form-text-field" %>
-    <%= f.hidden_field :room_id, value: @room.id %>
-    <%= f.submit "投稿", class: 'form-submit' %>
-  <% end %>
+  </div>
+  <div class="posts">
+    <%= form_for @message do |f| %>
+      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+          <%= f.submit "投稿",class: 'form-submit'%>
+    <% end %>
+  </div>
 </div>
