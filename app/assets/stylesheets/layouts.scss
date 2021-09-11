@@ -1,5 +1,18 @@
 .footer{
  width: 100%;
- text-align: center;
+ bottom: 0;
  background-color: black;
+}
+
+.footer-menu{
+ float: left;
+}
+
+.footer-list{
+ display: inline-block;
+ margin: 10px;
+}
+
+.copyright{
+ clear: both;
 }

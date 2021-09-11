@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
+  before_action :distance, only: [:index, :show]
   
   
   def index
@@ -35,7 +36,6 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    
     if @user.save
       flash[:successs] = 'ユーザーを登録しました'
       redirect_to @user
@@ -60,12 +60,34 @@ class UsersController < ApplicationController
     end  
   end
   
-  # def serch 
-  #   latitude = params[:latitude]
-  #   longitude = params[:longitude]
+  # def distance(lat1, lng1, lat2, lng2)
+  #   @user = User.find(params[:id])
+  #   @lat1 = current_user.latitude
+  #   @lng1 = current_user.longitude
+  #   @lat2 = @user.latitude
+  #   @lng2 = @user.longitude
     
-  #   @places = User.all.within(2, origin: [latitude, longitude])
-  # end  
+  #   x1 = @lat1.to_f * Math::PI / 180
+  #   y1 = @lng1.to_f * Math::PI / 180
+  #   x2 = @lat2.to_f * Math::PI / 180
+  #   y2 = @lng2.to_f * Math::PI / 180
+    
+  #   radius = 6378.137
+    
+  #   diff_y = (y1 - y2).abs
+    
+  #   calc1 = Math.cos(x2) * Math.sin(diff_y)
+  #   calc2 = Math.cos(x1) * Math.sin(x2) - Math.sin(x1) * Math.cos(x2) * Math.cos(diff_y)
+    
+  #   numerator = Math.sqrt(calc1 ** 2 + calc2 ** 2)
+    
+  #   denominator = Math.sin(x1) * Math.sin(x2) + Math.cos(x1) * Math.cos(x2) * Math.cos(diff_y)
+    
+  #   degree = Math.atan2(numerator, denominator)
+    
+  #   @distance = degree * radius
+  # end
+  
   
   private
   
@@ -79,6 +101,34 @@ class UsersController < ApplicationController
       redirect_to root_url
     end  
   end  
+  
+  def distance
+    @user = User.find(params[:id])
+    lat1 = current_user.latitude
+    lng1 = current_user.longitude
+    lat2 = @user.latitude
+    lng2 = @user.longitude
+    
+    x1 = lat1.to_f * Math::PI / 180
+    y1 = lng1.to_f * Math::PI / 180
+    x2 = lat2.to_f * Math::PI / 180
+    y2 = lng2.to_f * Math::PI / 180
+    
+    radius = 6378.137
+    
+    diff_y = (y1 - y2).abs
+    
+    calc1 = Math.cos(x2) * Math.sin(diff_y)
+    calc2 = Math.cos(x1) * Math.sin(x2) - Math.sin(x1) * Math.cos(x2) * Math.cos(diff_y)
+    
+    numerator = Math.sqrt(calc1 ** 2 + calc2 ** 2)
+    
+    denominator = Math.sin(x1) * Math.sin(x2) + Math.cos(x1) * Math.cos(x2) * Math.cos(diff_y)
+    
+    degree = Math.atan2(numerator, denominator)
+    
+    @distance = degree * radius
+  end
   
 end
   

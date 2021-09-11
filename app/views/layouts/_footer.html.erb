@@ -1,6 +1,11 @@
 <footer class="footer under-element">
-  <ul class="footer-menu">
-    <li><a href="/">ホーム</a></li>
-  </ul>
-  <p>&copy;m.daisuke.2021</p>
+  <div class="footer-menu">
+    <ul class="list-unstyled" >
+      <li class="footer-list"><%= link_to 'ホーム', root_path, class: 'nav-link' %></li>
+      <% if logged_in? %>
+        <li class="footer-list"><%= link_to 'プロフィール', user_path(current_user), class: 'nav-link' %></li>
+      <% end %>
+    </ul>
+  </div>
+  <p class="copyright text-center">Copyright&copy;m.daisuke.2021</p>
 </footer>

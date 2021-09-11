@@ -1,4 +1,4 @@
-<h4 class="rooms-title">気になる同士</h4>
+<h4 class="rooms-title">チャットメンバー</h4>
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>
@@ -14,6 +14,7 @@
   </div>
 <% end %>
 <hr>
+<p class="text-center">チャット画面</p>
 <div class="line-bc"><!--①LINE会話全体を囲う-->
   <% if @messages.present? %>
     <% @messages.each do |m| %>
