@@ -1,42 +1,63 @@
-<div class="left-button">
-</div>
 <h4 class="rooms-title">気になる同士</h4>
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>
+    <a class="rooms-user-link offset-md-5" href="/users/<%= e.user.id %>">
+      <%= e.user.name %>さん
+    </a>
     <% if e.user.image? %>
-        <%= image_tag e.user.image.url, size: '160x160', class: 'profile__image', :alt => '/' %>
-      <% else %>
-        <%= image_tag ('images.png'), :alt => '/' %>
-      <% end %>  
-      <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-        <%= e.user.name %>さん
-      </a>
+      <%= image_tag e.user.image.url, class: 'profile__img', :alt => '/' %>
+    <% else %>
+      <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
+    <% end %>  
   </strong>
   </div>
 <% end %>
 <hr>
-<div class="chats">
-  <div class="chat">
-    <% if @messages.present? %>
-      <% @messages.each do |m| %>
-        <div class="chat-box">
-          <div class="chat-face">
-          </div>
-          <div class="chat-hukidashi"> 
+<div class="line-bc"><!--①LINE会話全体を囲う-->
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+  <!--②左コメント始-->
+      <div class="balloon6">
+        <% unless current_user == m.user %>
+          <div class="name text-left">
             <%= m.user.name %>
-            <%= m.created_at.strftime("%H:%M")%> <br>
-            <strong><%= m.content %></strong> 
           </div>
-        </div>
+          <div class="faceicon">
+            <% if m.user.image? %>
+              <%= image_tag m.user.image.url, :alt => '/' %>
+            <% else %>
+              <%= image_tag ('images.png'), :alt => '/' %>
+            <% end %>
+          </div>
+          <div class="chatting">
+            <div class="says">
+              <p><%= m.content %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>  
+  <!--②/左コメント終-->
+  
+  <!--③右コメント始-->
+  <% if @messages.present? %>
+    <% @messages.each do |m| %>
+      <div class="mycomment">
+        <% if current_user == m.user %>
+          <p><%= m.content %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>  
+  <!--/③右コメント終-->
+  
+    <div class="posts">
+      <%= form_for @message do |f| %>
+        <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 40, class:"form-text-field" %>
+          <%= f.hidden_field :room_id, value: @room.id %>
+            <%= f.submit "送信",class: 'form-submit'%>
       <% end %>
-    <% end %>
-  </div>
-  <div class="posts">
-    <%= form_for @message do |f| %>
-      <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 70, class:"form-text-field" %>
-        <%= f.hidden_field :room_id, value: @room.id %>
-          <%= f.submit "投稿",class: 'form-submit'%>
-    <% end %>
-  </div>
-</div>
+    </div>
+</div><!--/①LINE会話終了-->

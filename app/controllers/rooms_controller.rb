@@ -6,7 +6,7 @@ class RoomsController < ApplicationController
     @room = Room.create
     @entry1 = Entry.create(room_id: @room.id, user_id: current_user.id)
     @entry2 = Entry.create(params.require(:entry).permit(:user_id, :room_id).merge(room_id: @room.id))
-    redirect_to '/rooms/#{@room.id}'
+    redirect_to "/rooms/#{@room.id}"
   end
 
   def show
@@ -15,7 +15,6 @@ class RoomsController < ApplicationController
       @messages = @room.messages
       @message = Message.new
       @entries = @room.entries
-      # @user = @messages.user
     else 
       redirect_back(fallback_location: root_path)
     end  

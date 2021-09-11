@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   
-  resources :maps
  root to: 'toppages#index'
  
  
@@ -12,5 +11,5 @@ Rails.application.routes.draw do
  
  resources :users, only: [:index, :show, :create, :edit, :update]
  resources :messages, only: [:create]
- resources :rooms, only: [:show, :create]
+ resources :rooms, only: [:create, :show]
 end
