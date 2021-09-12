@@ -2,7 +2,7 @@
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>
-    <a class="rooms-user-link offset-md-5" href="/users/<%= e.user.id %>">
+    <a class="rooms-user-link" href="/users/<%= e.user.id %>">
       <%= e.user.name %>さん
     </a>
     <% if e.user.image? %>

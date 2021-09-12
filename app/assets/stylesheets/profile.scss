@@ -5,32 +5,43 @@
 
 .profile {
   display: inline-block;
-  background: #FFF;
-  width: 300px;
+  background: #f5f5f5;
+  width: 235px;
   padding: 2rem;
   border: 1px solid #1a1a1a;
+  border-radius: 30px;
 }
 
 .profile__img {
   display: block;
   width: 160px;
   height: 160px;
-  border-radius:50%;
+  border: solid;
+  border-radius: 50%;
   margin: 0 auto;
 }
 
 .profile__name {
-  text-align:center;
-  font-weight:bold;
-  font-size:1.2rem;
+  text-align: center;
+  font-weight: bold;
+  font-size: 1.2rem;
   margin: 1rem auto 1rem;
   letter-spacing:.1rem;
 }
 
 .profile__desc {
-  line-height:1.6rem;
+  line-height: 1.6rem;
 }
 
 .under-element {
   clear: both;
+}
+
+.profile-show {
+  text-align: center;
+}
+
+.edit {
+  margin-left: auto;
+  margin-right: auto;
 }

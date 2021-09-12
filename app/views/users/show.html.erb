@@ -1,21 +1,26 @@
-<div class="profile">
-  <% if @user.image? %>
-    <%= image_tag @user.image.url, class: 'profile__img', :alt => '/' %>
-  <% else %>
-    <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
-  <% end %>
-  <div class="profile__name"><%= @user.name %></div>
-  <div class="profile__desc">ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。ここに簡単な自己紹介が入ります。</div>
-</div>
+<div class="profile-show">
+  <div class="profile">
+    <% if @user.image? %>
+      <%= image_tag @user.image.url, class: 'profile__img', :alt => '/' %>
+    <% else %>
+      <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
+    <% end %>
+    <div class="profile__name"><%= @user.name %></div>
+    <div class="profile__desc">ここに簡単な自己紹介が入ります。</div>
+  </div>
+</div>  
 <% if @user == current_user %>
-  <%= link_to '編集する', edit_user_path(@user) %>
+  <i class="fas fa-user-edit"></i><%= link_to '編集する', edit_user_path(@user) %>
+  <!--<i class="fas fa-user-edit"></i>-->
 <% end %>
 
-<h2>gmap</h2>
-<%= @distance %>
-<%= @user.address %>
-<%= @user.latitude %>
-<%= @user.longitude %>
+<h2>Google Map</h2>
+<% unless current_user == @user %>
+  <p>あなたとの距離約<%= @distance %>　※距離は直線距離で表示です</p>
+  <p>相手のご住所　<%= @user.address %></p>
+<% else %>
+  <p>あなたのご住所　<%= @user.address %></p>
+<% end %>
 <div id='map'></div>
 <style>
   #map{

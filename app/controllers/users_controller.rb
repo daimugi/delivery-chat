@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
-  before_action :distance, only: [:index, :show]
+  before_action :distance, only: [:show]
   
   
   def index
@@ -60,35 +60,7 @@ class UsersController < ApplicationController
     end  
   end
   
-  # def distance(lat1, lng1, lat2, lng2)
-  #   @user = User.find(params[:id])
-  #   @lat1 = current_user.latitude
-  #   @lng1 = current_user.longitude
-  #   @lat2 = @user.latitude
-  #   @lng2 = @user.longitude
-    
-  #   x1 = @lat1.to_f * Math::PI / 180
-  #   y1 = @lng1.to_f * Math::PI / 180
-  #   x2 = @lat2.to_f * Math::PI / 180
-  #   y2 = @lng2.to_f * Math::PI / 180
-    
-  #   radius = 6378.137
-    
-  #   diff_y = (y1 - y2).abs
-    
-  #   calc1 = Math.cos(x2) * Math.sin(diff_y)
-  #   calc2 = Math.cos(x1) * Math.sin(x2) - Math.sin(x1) * Math.cos(x2) * Math.cos(diff_y)
-    
-  #   numerator = Math.sqrt(calc1 ** 2 + calc2 ** 2)
-    
-  #   denominator = Math.sin(x1) * Math.sin(x2) + Math.cos(x1) * Math.cos(x2) * Math.cos(diff_y)
-    
-  #   degree = Math.atan2(numerator, denominator)
-    
-  #   @distance = degree * radius
-  # end
-  
-  
+
   private
   
   def user_params
@@ -127,7 +99,7 @@ class UsersController < ApplicationController
     
     degree = Math.atan2(numerator, denominator)
     
-    @distance = degree * radius
+    @distance = "#{(degree * radius).round(1)} km"
   end
   
 end
