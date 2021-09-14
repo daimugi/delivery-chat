@@ -17,6 +17,12 @@
               </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
+                <%= link_to edit_user_path(current_user), class: 'nav-link text-dark' do %>
+                  <i class="fas fa-user-edit"></i> 編集する
+                <% end %> 
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
                 <%= link_to logout_path, method: :delete,  class: 'nav-link text-dark' do %>
                   <i class="fas fa-sign-out-alt"></i> ログアウト
                 <% end %>  

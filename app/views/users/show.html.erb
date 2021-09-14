@@ -15,11 +15,6 @@
     </div>
   </div>
 </div>  
-<% if @user == current_user %>
-  <%= link_to edit_user_path(@user) do %>
-    <i class="fas fa-user-edit"></i> 編集する
-  <% end %>  
-<% end %>
 
 <h2 class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map</h2>
 <% unless current_user == @user %>
