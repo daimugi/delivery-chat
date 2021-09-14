@@ -11,7 +11,7 @@
         <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
       <% end %>  
       <div class="profile__name"><%= user.name %></div>
-      <div><%= @distance %></div>
+      <hr>
       <div class="profile__desc">ここに簡単な自己紹介が入ります。</div>
       <%= link_to 'プロフィール', user_path(user), 'data-turbolinks': false %>
     </div>
