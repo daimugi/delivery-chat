@@ -10,6 +10,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @introduction = @user.introduction
     gon.user = @user
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
@@ -64,7 +65,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :address)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :image, :address, :introduction)
   end 
   
   def correct_user

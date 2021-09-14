@@ -3,19 +3,6 @@
 </div>
 <% if users.any? %>
   <% users.each do |user| %>
-  <!--<div class="parent">-->
-  <!--  <div class="profile">-->
-  <!--    <% if user.image? %>-->
-  <!--      <%= image_tag user.image.url, class: 'profile__img', :alt => '/' %>-->
-  <!--    <% else %>-->
-  <!--      <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>-->
-  <!--    <% end %>  -->
-  <!--    <div class="profile__name"><%= user.name %></div>-->
-  <!--    <hr>-->
-  <!--    <div class="profile__desc">ここに簡単な自己紹介が入ります。</div>-->
-  <!--    <%= link_to 'プロフィール', user_path(user), 'data-turbolinks': false %>-->
-  <!--  </div>-->
-  <!--</div>-->
     <%= link_to  user_path(user), 'data-turbolinks': false do %>
       <div class="parent">
         <div class="profile">
@@ -26,7 +13,13 @@
           <% end %>  
           <div class="profile__name"><%= user.name %></div>
           <hr>
-          <div class="profile__desc">ここに簡単な自己紹介が入ります。</div>
+          <div class="profile__desc">
+            <% if user.introduction? %>
+              <%= truncate(user.introduction, length:15) %>
+            <% else %>
+              <p>よろしくお願いします</p>
+            <% end %>  
+          </div>
         </div>
       </div>
     <% end %>  
