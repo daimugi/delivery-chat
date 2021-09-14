@@ -24,13 +24,7 @@
   <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
 <% end %>
 <div id='map'></div>
-<style>
-  #map{
-    height: 400px;
-    width: 400px;
-  }
-</style>
-<script type="text/javascript">
+<script>
   let map;
 
   function initMap() {
