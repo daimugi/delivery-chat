@@ -2,9 +2,12 @@
 <% @entries.each do |e| %>
   <div class="user-name">
   <strong>
-    <a class="rooms-user-link" href="/users/<%= e.user.id %>">
-      <%= e.user.name %>さん
-    </a>
+    <!--<a class="rooms-user-link" href="/users/<%= e.user.id %>">-->
+    <!--  <%= e.user.name %>さん-->
+    <!--</a>-->
+    <div class="profile__name">
+      <%= e.user.name %>
+    </div>
     <% if e.user.image? %>
       <%= image_tag e.user.image.url, class: 'profile__img', :alt => '/' %>
     <% else %>

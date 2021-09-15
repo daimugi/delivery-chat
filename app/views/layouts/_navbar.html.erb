@@ -23,6 +23,12 @@
               </li>
               <li class="dropdown-divider"></li>
               <li class="dropdown-item">
+                <%= link_to rooms_path, class: 'nav-link text-dark' do %>
+                  <i class="fas fa-comments"></i> チャットへ
+                <% end %>  
+              </li>
+              <li class="dropdown-divider"></li>
+              <li class="dropdown-item">
                 <%= link_to logout_path, method: :delete,  class: 'nav-link text-dark' do %>
                   <i class="fas fa-sign-out-alt"></i> ログアウト
                 <% end %>  
