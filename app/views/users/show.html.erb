@@ -1,25 +1,32 @@
-<div class="profile-show">
-  <div class="profile">
+<div class="user-show">
+  <div class="show-face">
     <% if @user.image? %>
-      <%= image_tag @user.image.url, class: 'profile__img', :alt => '/' %>
+      <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
     <% else %>
-      <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
+      <%= image_tag ('images.png'), class: 'show__img', :alt => '/' %>
     <% end %>
-    <div class="profile__name"><%= @user.name %></div>
-    <div class="profile__desc">
-      <% if @user.introduction? %>
-        <%= @user.introduction %>
-      <% else %>
-        <p>よろしくお願いします</p>
-      <% end %> 
-    </div>
+    <div class="show__name"><%= @user.name %></div>
   </div>
-</div>  
+  <div class="show__address">
+    <% unless current_user == @user %>
+      <p><i class="fas fa-home"></i>　<%= @user.address %></p>
+    <% else %>
+      <p><i class="fas fa-home"></i>　<%= @user.address %></p>
+    <% end %>
+  </div>
+  <div class="show__desc">
+    <% if @user.introduction? %> 
+      <%= @user.introduction %>
+    <% else %>
+      <p>よろしくお願いします</p>
+    <% end %> 
+  </div>
+</div>
 
 <h2 class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map</h2>
 <% unless current_user == @user %>
   <p class="text-center">
-    あなたとの距離約<%= @distance %>　※距離は直線距離で表示です <br>
+    <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離で表示<br>
     <i class="fas fa-home"></i> 相手のご住所　<%= @user.address %></p>
 <% else %>
   <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
@@ -60,7 +67,7 @@
       <%= fields_for @entry do |e| %>
         <%= e.hidden_field :user_id, value: @user.id %>
       <% end %>
-      <%= f.submit 'チャットを始める', class: "btn btn-primary btn-lg user-show-chat" %>
+      <%= f.submit 'チャットを始める', class: "btn btn-primary btn-lg show-btn" %>
     <% end %>
   <% end %>
 <% end %>  
