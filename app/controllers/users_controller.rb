@@ -66,6 +66,23 @@ class UsersController < ApplicationController
     end  
   end
   
+  def room 
+    # @user = User.find(params[:id])
+    @users = User.all
+    @current_user_entry = Entry.where(user_id: current_user.id)
+    @users_entry = Entry.where(user_id: @users.ids)
+    unless @users.ids == current_user.id 
+      @current_user_entry.each do |cu|
+        @users_entry.each do |u|
+          if cu.room_id == u.room_id then 
+            @isRoom = true
+            @roomId = cu.room_id
+          end 
+        end 
+      end  
+    end  
+  end
+  
 
   private
   

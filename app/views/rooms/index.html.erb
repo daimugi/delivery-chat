@@ -1,2 +1,3 @@
-<p>index<p>
-  <%= @rooms %>
+<% @current_user_entry.each do |cu| %>
+<p class="user-show-room"><a href="/rooms/<%= cu.room_id %>" class="btn bnt-primary btn-lg">チャットへ</a></p>
+<% end %>
