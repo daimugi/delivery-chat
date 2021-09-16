@@ -1,16 +1,16 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
-  before_action :distance, only: [:show]
+  before_action :distance, only: [:index, :show]
   
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(20)
+    @current_user = current_user  
   end
 
   def show
     @user = User.find(params[:id])
-    @introduction = @user.introduction
     gon.user = @user
     @current_user_entry = Entry.where(user_id: current_user.id)
     @user_entry = Entry.where(user_id: @user.id)
@@ -66,23 +66,6 @@ class UsersController < ApplicationController
     end  
   end
   
-  def room 
-    # @user = User.find(params[:id])
-    @users = User.all
-    @current_user_entry = Entry.where(user_id: current_user.id)
-    @users_entry = Entry.where(user_id: @users.ids)
-    unless @users.ids == current_user.id 
-      @current_user_entry.each do |cu|
-        @users_entry.each do |u|
-          if cu.room_id == u.room_id then 
-            @isRoom = true
-            @roomId = cu.room_id
-          end 
-        end 
-      end  
-    end  
-  end
-  
 
   private
   
@@ -97,8 +80,10 @@ class UsersController < ApplicationController
     end  
   end  
   
+
   def distance
     @user = User.find(params[:id])
+    
     lat1 = current_user.latitude
     lng1 = current_user.longitude
     lat2 = @user.latitude

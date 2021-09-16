@@ -8,11 +8,7 @@
     <div class="show__name"><%= @user.name %></div>
   </div>
   <div class="show__address">
-    <% unless current_user == @user %>
-      <p><i class="fas fa-home"></i>　<%= @user.address %></p>
-    <% else %>
-      <p><i class="fas fa-home"></i>　<%= @user.address %></p>
-    <% end %>
+    <p><i class="fas fa-home"></i>　<%= @user.address %></p>
   </div>
   <div class="show__desc">
     <% if @user.introduction? %> 
@@ -57,7 +53,7 @@
     });
   }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVrMNgRxuKhJNYqvsHIpL9Nk2fX8ELDsc&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
   
 <% unless @user.id == current_user.id %>
   <% if @isRoom == true %>

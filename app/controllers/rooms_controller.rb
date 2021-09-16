@@ -11,7 +11,6 @@ class RoomsController < ApplicationController
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(20)
-    # @user = User.find(params[:id])
     @current_user_entry = Entry.where(user_id: current_user.id)
     @users_entry = Entry.where(user_id: @users.ids)
     unless @users.ids == current_user.id 

@@ -1,28 +1,29 @@
-<div class="currentLocation">
-  <%= button_tag '現在地から探す', type: 'button' %>
-</div>
 <% if users.any? %>
   <% users.each do |user| %>
-    <%= link_to  user_path(user), 'data-turbolinks': false do %>
-      <div class="parent">
-        <div class="profile">
-          <% if user.image? %>
-            <%= image_tag user.image.url, class: 'profile__img', :alt => '/' %>
-          <% else %>
-            <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
-          <% end %>  
-          <div class="profile__name"><%= user.name %></div>
-          <hr>
-          <div class="profile__desc">
-            <% if user.introduction? %>
-              <%= truncate(user.introduction, length:20) %>
+    <% unless current_user.id == user.id %>
+      <%= link_to  user_path(user), 'data-turbolinks': false do %>
+        <div class="parent">
+          <div class="profile">
+            <% if user.image? %>
+              <%= image_tag user.image.url, class: 'profile__img', :alt => '/' %>
             <% else %>
-              <p>よろしくお願いします</p>
+              <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
             <% end %>  
+            <div class="profile__name"><%= user.name %></div>
+            <hr>
+            <p>距離約<%= @distance %></p>
+            <p><%= user.latitude %></p>
+            <div class="profile__desc">
+              <% if user.introduction? %>
+                <%= truncate(user.introduction, length:20) %>
+              <% else %>
+                <p>よろしくお願いします</p>
+              <% end %>  
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>  
-  <% end %>
+      <% end %>  
+    <% end %>
+  <% end %>  
 <%= paginate users %>
 <% end %>
