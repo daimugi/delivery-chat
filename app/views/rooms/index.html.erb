@@ -1,3 +1,11 @@
-<% @current_user_entry.each do |cu| %>
-<p class="user-show-room"><a href="/rooms/<%= cu.room_id %>" class="btn bnt-primary btn-lg">チャットへ</a></p>
+<% unless @users.ids == current_user.id %>
+  <% @current_user_entry.each do |cu| %>
+    <% @users_entry.each do |u| %>
+      <% if cu.room_id == u.room_id then %>
+        <% unless current_user.name == u.user.name %>
+        <p class="user-show-room"><a href="/rooms/<%= cu.room_id %>" class="btn btn-success btn-lg"><%= u.user.name %>さんとのチャット</a></p>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% end %>  
 <% end %>
