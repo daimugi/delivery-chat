@@ -1,12 +1,18 @@
 class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
-  before_action :distance, only: [:index, :show]
+  before_action :distance, only: [:show]
+  # after_action :distance, only: [:index]
   
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(20)
-    # @current_user = current_user  
+    # @user = User.find(params[:id])
+    @users.each do |user|
+      unless current_user.id == user.id 
+        @user = user
+      end
+    end  
   end
 
   def show
@@ -64,6 +70,10 @@ class UsersController < ApplicationController
       flash.now[:danger] = 'ユーザー情報が更新されませんでした'
       render :edit
     end  
+  end
+  
+  def search 
+    @users = User.all 
   end
   
 

@@ -5,7 +5,8 @@
   margin: 15px auto;
   text-align: right;
   font-size: 14px;
-  background: lavender;
+  // background: lavender;
+  // clear: both;
 
 }
 
@@ -16,14 +17,18 @@
   overflow: hidden;
 }
 
+.name {
+  margin-left: 10px;
+}
+
 .faceicon {
   float: left;
-  margin-right: -50px;
+  margin-right: -10px;
   width: 40px;
 }
 
 .faceicon img{
-  width: 100%;
+  width: 150%;
   height: auto;
   border-radius: 50%;
 }
@@ -34,11 +39,11 @@
 .says {
   display: inline-block;
   position: relative; 
-  margin: 0 0 0 50px;
+  margin: 10px 0 0 50px;
   padding: 10px;
   max-width: 250px;
   border-radius: 12px;
-  background: #edf1ee;
+  background: white;
 }
 
 .says:after {
@@ -48,7 +53,7 @@
   top: 3px; 
   left: -19px;
   border: 8px solid transparent;
-  border-right: 18px solid #edf1ee;
+  border-right: 18px solid white;
   -webkit-transform: rotate(35deg);
   transform: rotate(35deg);
 }
@@ -68,7 +73,7 @@
   padding: 8px;
   max-width: 250px;
   border-radius: 12px;
-  background: #30e852;
+  background: white;
   font-size: 15px;
 }
 
@@ -78,8 +83,17 @@
   top: 3px; 
   right: -19px;
   border: 8px solid transparent;
-  border-left: 18px solid #30e852;
+  border-left: 18px solid white;
   -webkit-transform: rotate(-35deg);
   transform: rotate(-35deg);
+}
+
+.chat__member {
+  border: solid;
+}
+
+.chat__profile {
+  float: left;
+  margin: 40px;
 }
 

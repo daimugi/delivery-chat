@@ -11,8 +11,7 @@
             <% end %>  
             <div class="profile__name"><%= user.name %></div>
           <hr>
-            <p>距離約<%= @distance %></p>
-            <p><%= user.latitude %></p>
+          <%= user.id %>
             <div class="profile__desc">
               <% if user.introduction? %>
                 <%= truncate(user.introduction, length:20) %>

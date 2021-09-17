@@ -1,23 +1,10 @@
-<h4 class="rooms-title">チャットメンバー</h4>
-<% @entries.each do |e| %>
-  <div class="user-name">
-  <strong>
-    <!--<a class="rooms-user-link" href="/users/<%= e.user.id %>">-->
-    <!--  <%= e.user.name %>さん-->
-    <!--</a>-->
-    <div class="profile__name">
-      <%= e.user.name %>
-    </div>
-    <% if e.user.image? %>
-      <%= image_tag e.user.image.url, class: 'profile__img', :alt => '/' %>
-    <% else %>
-      <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
-    <% end %>  
-  </strong>
-  </div>
-<% end %>
-<hr>
-<p class="text-center">チャット画面</p>
+<% if @messages.present? %>
+  <% @messages.each do |m| %>
+    <% unless m.user == current_user %>
+    <p class="text-center"><%= m.user.name %>さんとのチャット</p>
+    <% end %>
+  <% end %>
+<% end %>  
 <div class="line-bc"><!--①LINE会話全体を囲う-->
   <% if @messages.present? %>
     <% @messages.each do |m| %>
