@@ -7,6 +7,11 @@
     <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
       <ul class="navbar-nav">
         <% if logged_in? %>
+          <li class="nav-item">
+            <%= link_to logout_path, method: :delete,  class: 'nav-link' do %>
+              <i class="fas fa-sign-out-alt"></i> ログアウト
+            <% end %>  
+          </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#"  data-toggle="dropdown"><%= current_user.name %>さん</a>
             <ul class="dropdown-menu dropdown-menu-right">
@@ -27,23 +32,17 @@
                   <i class="fas fa-comments"></i> チャットへ
                 <% end %>  
               </li>
-              <li class="dropdown-divider"></li>
-              <li class="dropdown-item">
-                <%= link_to logout_path, method: :delete,  class: 'nav-link text-dark' do %>
-                  <i class="fas fa-sign-out-alt"></i> ログアウト
-                <% end %>  
-              </li>
             </ul>
           </li>  
         <% else %>
           <li class="nav-item">
-            <%= link_to signup_path, class: 'nav-link' do %>
-              <i class="fas fa-user-plus"></i> 新規登録
+            <%= link_to  login_path, class: 'nav-link' do %>
+              <i class="fas fa-sign-in-alt"></i> ログイン
             <% end %>  
           </li>
           <li class="nav-item">
-            <%= link_to  login_path, class: 'nav-link' do %>
-              <i class="fas fa-sign-in-alt"></i> ログイン
+            <%= link_to signup_path, class: 'nav-link' do %>
+              <i class="fas fa-user-plus"></i> 新規登録
             <% end %>  
           </li>
         <% end %>  
