@@ -41,11 +41,13 @@
     <% @messages.each do |m| %>
       <div class="mycomment">
         <% if current_user == m.user %>
-          <% if m.image? %>
+          <% if m.content? && m.image? %>
             <p><%= m.content %> <br>
             <%= image_tag m.image.url %></p>
-          <% elsif %>
+          <% elsif m.content? && !m.image? %>
             <p><%= m.content %></p>
+          <% elsif !m.content? && m.image? %>
+            <p><%= image_tag m.image.url %></p>
           <% end %>  
         <% end %>
       </div>
@@ -55,8 +57,10 @@
   
     <div class="posts">
       <%= form_for @message do |f| %>
+        <%= f.label :image do %>
+          <i class="fas fa-camera fa-2x camera"></i><%= f.file_field :image, class: 'hoge'%>
+        <% end %>  
         <%= f.text_field :content, placeholder: "メッセージを入力" , size: 40, class: "form-text-field" %>
-        <%= f.file_field :image, class: 'form-control' %>
         <%= f.hidden_field :room_id, value: @room.id %>
         <%= f.submit "送信",class: 'form-submit'%>
       <% end %>
