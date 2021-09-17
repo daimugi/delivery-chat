@@ -1,10 +1,9 @@
-<% if @messages.present? %>
-  <% @messages.each do |m| %>
-    <% unless m.user == current_user %>
-    <p class="text-center"><%= m.user.name %>さんとのチャット</p>
+  <% @entries.each do |e| %>
+    <% unless e.user == current_user %>
+    <p class="text-center"><%= e.user.name %>さんとのチャット</p>
     <% end %>
   <% end %>
-<% end %>  
+
 <div class="line-bc"><!--①LINE会話全体を囲う-->
   <% if @messages.present? %>
     <% @messages.each do |m| %>
@@ -23,7 +22,12 @@
           </div>
           <div class="chatting">
             <div class="says">
-              <p><%= m.content %></p>
+              <% if m.image? %>
+                <p><%= m.content %> <br>
+                <%= image_tag m.image.url %></p>
+              <% elsif %>
+                <p><%= m.content %></p>
+              <% end %>  
             </div>
           </div>
         <% end %>
@@ -37,7 +41,12 @@
     <% @messages.each do |m| %>
       <div class="mycomment">
         <% if current_user == m.user %>
-          <p><%= m.content %></p>
+          <% if m.image? %>
+            <p><%= m.content %> <br>
+            <%= image_tag m.image.url %></p>
+          <% elsif %>
+            <p><%= m.content %></p>
+          <% end %>  
         <% end %>
       </div>
     <% end %>
@@ -46,9 +55,10 @@
   
     <div class="posts">
       <%= form_for @message do |f| %>
-        <%= f.text_field :content, placeholder: "メッセージを入力して下さい" , size: 40, class:"form-text-field" %>
-          <%= f.hidden_field :room_id, value: @room.id %>
-            <%= f.submit "送信",class: 'form-submit'%>
+        <%= f.text_field :content, placeholder: "メッセージを入力" , size: 40, class: "form-text-field" %>
+        <%= f.file_field :image, class: 'form-control' %>
+        <%= f.hidden_field :room_id, value: @room.id %>
+        <%= f.submit "送信",class: 'form-submit'%>
       <% end %>
     </div>
 </div><!--/①LINE会話終了-->
