@@ -1,5 +1,6 @@
 <div class="user-show">
-  <div class="show-face">
+  <!--<div class="element">-->
+  <div class="show__face">
     <% if @user.image? %>
       <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
     <% else %>
@@ -19,52 +20,57 @@
   </div>
 </div>
 
-<h2 class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map</h2>
-<% unless current_user == @user %>
-  <p class="text-center">
-    <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離で表示<br>
-    <i class="fas fa-home"></i> 相手のご住所　<%= @user.address %></p>
-<% else %>
-  <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
-<% end %>
-<div id='map'></div>
-<script>
-  let map;
-
-  function initMap() {
-    geocoder = new google.maps.Geocoder()
-    
-    map = new google.maps.Map(document.getElementById('map'), {
-      // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
-      center: {
-        lat: gon.user.latitude,
-        lng: gon.user.longitude
-      },
-      zoom: 15,
-    });
-
-    marker = new google.maps.Marker({
-      // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
-      position: {
-        lat: gon.user.latitude,
-        lng: gon.user.longitude
-      },
-      map: map
-    });
-  }
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
-  
-<% unless @user.id == current_user.id %>
-  <% if @isRoom == true %>
-    <p class="user-show-room"><a href="/rooms/<%= @roomId %>" class="btn btn-success btn-lg">チャットへ</a></p>
+<!--<h2 class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map</h2>-->
+<div class="user-map">
+  <% unless current_user == @user %>
+    <p class="text-center">
+      <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離で表示<br>
+      <i class="fas fa-home"></i> 相手のご住所　<%= @user.address %></p>
   <% else %>
-    <%= form_for @room do |f| %>
-      <%= fields_for @entry do |e| %>
-        <%= e.hidden_field :user_id, value: @user.id %>
-      <% end %>
-      <%= f.submit 'チャットを始める', class: "btn btn-primary btn-lg show-btn" %>
-    <% end %>
+    <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
   <% end %>
-<% end %>  
+  <div id='map'></div>
+  <script>
+    let map;
+  
+    function initMap() {
+      geocoder = new google.maps.Geocoder()
+      
+      map = new google.maps.Map(document.getElementById('map'), {
+        // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+        center: {
+          lat: gon.user.latitude,
+          lng: gon.user.longitude
+        },
+        zoom: 15,
+      });
+  
+      marker = new google.maps.Marker({
+        // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+        position: {
+          lat: gon.user.latitude,
+          lng: gon.user.longitude
+        },
+        map: map
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
+<!--  </div>-->
+</div>  
+ 
+<div class="chat-btn">  
+  <% unless @user.id == current_user.id %>
+    <% if @isRoom == true %>
+      <p><a href="/rooms/<%= @roomId %>" class="btn btn-success btn-lg">チャットへ</a></p>
+    <% else %>
+      <%= form_for @room do |f| %>
+        <%= fields_for @entry do |e| %>
+          <%= e.hidden_field :user_id, value: @user.id %>
+        <% end %>
+        <%= f.submit 'チャットを始める', class: "btn btn-primary btn-lg show-btn" %>
+      <% end %>
+    <% end %>
+  <% end %>  
+</div>  
     

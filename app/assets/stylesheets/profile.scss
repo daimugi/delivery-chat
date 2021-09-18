@@ -48,7 +48,7 @@
   background: #cfc;
 }
 
-.show-face {
+.show__face {
   display: inline-block;
   // background: #cfc;
   height: 265px;
@@ -82,20 +82,40 @@
 }
 
 .show__desc {
-  width: 600px;
+  width: 400px;
   margin: 1rem 0;
+}
+
+.element {
+  float: left;
 }
 
 .under-element {
   clear: both;
 }
 
-.show-btn {
-  margin: 0 500px;
-}
+// .show-btn {
+//   margin: 0 500px;
+// }
 
 .user-show-room {
   float: left;
   margin: 20px;
 }
 
+.user-map {
+  margin-top: -540px;
+  margin-left: 500px;
+  
+  p {
+    margin-right: 100px;
+  }
+}
+
+h2 {
+  margin: 2rem 0;
+}
+
+.chat-btn {
+  margin: 50px 0 0 400px;
+}
