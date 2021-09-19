@@ -22,12 +22,14 @@
           </div>
           <div class="chatting">
             <div class="says">
-              <% if m.image? %>
+              <% if m.content? && m.image? %>
                 <p><%= m.content %> <br>
-                <%= image_tag m.image.url %></p>
-              <% elsif %>
+                <%= image_tag m.image.url, :alt => '/' %></p>
+              <% elsif m.content? && !m.image? %>
                 <p><%= m.content %></p>
-              <% end %>  
+              <% elsif !m.content? && m.image? %>
+                <p><%= image_tag m.image.url, :alt => '/' %></p>
+              <% end %>   
             </div>
           </div>
         <% end %>
@@ -43,11 +45,11 @@
         <% if current_user == m.user %>
           <% if m.content? && m.image? %>
             <p><%= m.content %> <br>
-            <%= image_tag m.image.url %></p>
+            <%= image_tag m.image.url, :alt => '/' %></p>
           <% elsif m.content? && !m.image? %>
             <p><%= m.content %></p>
           <% elsif !m.content? && m.image? %>
-            <p><%= image_tag m.image.url %></p>
+            <p><%= image_tag m.image.url, :alt => '/' %></p>
           <% end %>  
         <% end %>
       </div>
