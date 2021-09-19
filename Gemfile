@@ -63,3 +63,6 @@ gem 'dotenv-rails'
 gem 'gon'
 gem 'http'
 gem 'openssl'
+group :production do
+  gem 'pg', '>= 0.18', '< 2.0'
+end

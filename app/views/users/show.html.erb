@@ -24,8 +24,8 @@
 <div class="user-map">
   <% unless current_user == @user %>
     <p class="text-center">
-      <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離で表示<br>
-      <i class="fas fa-home"></i> 相手のご住所　<%= @user.address %></p>
+      <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離　<br>
+      <i class="fas fa-home"></i> <%= @user.name %>さんのご住所　<%= @user.address %></p>
   <% else %>
     <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
   <% end %>
