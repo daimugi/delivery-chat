@@ -20,7 +20,9 @@
               <%= image_tag ('images.png'), :alt => '/' %>
             <% end %>
           </div>
+          <!--<%= m.created_at.strftime("%m-%d %H:%M")%>-->
           <div class="chatting">
+            <!--<div class="chat__time"><%= m.created_at.strftime("%m-%d %H:%M")%></div>-->
             <div class="says">
               <% if m.content? && m.image? %>
                 <p><%= m.content %> <br>
@@ -31,6 +33,7 @@
                 <p><%= image_tag m.image.url, :alt => '/' %></p>
               <% end %>   
             </div>
+            <%= m.created_at.strftime("%m-%d %H:%M")%>
           </div>
         <% end %>
       </div>
@@ -43,6 +46,7 @@
     <% @messages.each do |m| %>
       <div class="mycomment">
         <% if current_user == m.user %>
+        <%= m.created_at.strftime("%m-%d %H:%M")%>
           <% if m.content? && m.image? %>
             <p><%= m.content %> <br>
             <%= image_tag m.image.url, :alt => '/' %></p>
