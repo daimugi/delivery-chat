@@ -2,12 +2,10 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:index, :show, :edit, :update]
   before_action :correct_user, only: [:edit, :update]
   before_action :distance, only: [:show]
-  # after_action :distance, only: [:index]
   
   
   def index
     @users = User.order(id: :desc).page(params[:page]).per(20)
-    # @user = User.find(params[:id])
     @users.each do |user|
       unless current_user.id == user.id 
         @user = user
@@ -45,7 +43,14 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:successs] = 'ユーザーを登録しました'
-      redirect_to @user
+      redirect_to user_path(@user)
+      # @user = User.find(params[:id])
+      # @current_user = @user 
+      # if logged_in? 
+      #   @current_user = User.find(params[:id])
+      # end  
+      # render :show
+      # redirect_to root_url
     else 
       flash.now[:danger] = 'ユーザーの登録に失敗しました'
       render :new
