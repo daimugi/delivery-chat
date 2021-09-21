@@ -1,5 +1,4 @@
 <div class="user-show">
-  <!--<div class="element">-->
   <div class="show__face">
     <% if @user.image? %>
       <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
@@ -20,7 +19,6 @@
   </div>
 </div>
 
-<!--<h2 class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map</h2>-->
 <div class="user-map">
   <% unless current_user == @user %>
     <p class="text-center">
@@ -56,8 +54,13 @@
     }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
-<!--  </div>-->
 </div>  
+
+<div class="user-post">
+  <% if current_user == @user %> 
+    <%= link_to '投稿する', new_post_path, class: 'btn btn-primary btn-sm' %>
+  <% end %>
+</div>
  
 <div class="chat-btn">  
   <% unless @user.id == current_user.id %>

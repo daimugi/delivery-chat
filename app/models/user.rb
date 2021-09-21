@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  validates :name, presence: true, length: { maximum: 20 }
+  validates :name, presence: true, length: { maximum: 16 }
   validates :introduction, length: { maximum: 100 }
   validates :email, presence: true, length: { maximum: 255 },
                     format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i },
@@ -10,6 +10,7 @@ class User < ApplicationRecord
   
   has_many :messages, dependent: :destroy
   has_many :entries, dependent: :destroy
+  has_many :posts, dependent: :destroy
   
   geocoded_by :address
   after_validation :geocode, if: :address_changed?

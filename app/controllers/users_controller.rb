@@ -32,7 +32,8 @@ class UsersController < ApplicationController
         @room =Room.new
         @entry = Entry.new
       end
-    end  
+    end
+    @post = current_user.posts.build
   end
 
   def new
