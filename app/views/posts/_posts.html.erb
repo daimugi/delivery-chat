@@ -19,7 +19,7 @@
         <div>
           <p><%= post.content %></p>
         </div>
-        <div class="post-btn">
+        <div class="post-edit-btn">
           <% if current_user == post.user %>
             <%= link_to  edit_post_path(post), class: 'btn' do %>
               <i class="far fa-edit fa-2x"></i>

@@ -37,14 +37,13 @@
 
 .user-show {
   display: inline-block;
-  // background: #cfc;
   height: 500px;
   width: 900px;
   padding: 2rem;
   border: 1px solid #1a1a1a;
   border-radius: 30px;
   color: black;
-  margin: 50px auto;
+  margin: 50px 0 50px 130px;
   background: #cfc;
 }
 
@@ -105,10 +104,10 @@
 
 .user-map {
   margin-top: -520px;
-  margin-left: 425px;
+  margin-left: 550px;
   
   p {
-    margin-right: 160px;
+    margin-right: 100px;
   }
 }
 
@@ -118,4 +117,10 @@ h2 {
 
 .chat-btn {
   margin: 50px 0 0 400px;
+}
+
+.user-post {
+  margin: 50px 0 0 50px;
+  
+  text-align: center;
 }

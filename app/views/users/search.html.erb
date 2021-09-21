@@ -1,8 +1,0 @@
-<p>search</p>
-<%= @users.each do |user| %>
-  <% unless current_user == user %>
-    <%= user.id %>
-    <%= user.address %>
-  <% end %>
-<% end %>  
-  
