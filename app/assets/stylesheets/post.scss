@@ -2,5 +2,27 @@
   background: white;
   border: solid;
   width: 600px;
+  height: 130px;
   margin: 50px auto;
+  
+  .post_user_name {
+    // margin-left: 10px;
+    text-align: center;
+  }
+  
+  .post_user_img {
+    width: 80px;
+    height: 80px;
+    border: solid;
+    border-radius: 50%;
+  }
+  
+  p {
+    margin: 0 20px;
+  }
+  
+  .post-btn {
+    text-align: right;
+    margin-top: 30px;
+  }
 }

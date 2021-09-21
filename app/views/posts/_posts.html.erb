@@ -2,21 +2,30 @@
 <ul class="list-unstyled">
   <% @posts.each do |post| %>
     <li class="media mb-3 post">
-      <% if post.user.image? %>
-        <%= image_tag post.user.image.url, class: 'profile__img', :alt => '/' %>
-      <% else %>
-        <%= image_tag ('images.png'), class: 'profile__img', :alt => '/' %>
-      <% end %>  
+      <div>
+        <% if post.user.image? %>
+          <%= image_tag post.user.image.url, class: 'post_user_img', :alt => '/' %>
+        <% else %>
+          <%= image_tag ('images.png'), class: 'post_user_img', :alt => '/' %>
+        <% end %>
+        <div class="post_user_name">
+          <%= post.user.name %>
+        </div>
+      </div>
       <div class="media-body">
         <div>
-          <%= link_to post.user.name, user_path(post.user) %> <span class="text-muted">posted at <%= post.created_at.strftime("%m-%d %H:%M") %></span>
+          <span class="text-muted"> <%= post.created_at.strftime("%m-%d %H:%M") %></span>
         </div>
         <div>
           <p><%= post.content %></p>
         </div>
-        <% if current_user == post.user %>
-          <%= link_to '編集する', edit_post_path(post), class: 'btn btn-success btn-sm' %>
-        <% end %>
+        <div class="post-btn">
+          <% if current_user == post.user %>
+            <%= link_to  edit_post_path(post), class: 'btn' do %>
+              <i class="far fa-edit fa-2x"></i>
+            <% end %>  
+          <% end %>
+        </div>
       </div>
     </li>
   <% end %>
