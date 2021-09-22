@@ -1,17 +1,19 @@
 .post-large {
+  padding: 5px;
   background: white;
   border: solid;
-  width: 600px;
-  height: 150px;
+  width: 625px;
+  height: 160px;
   margin: 50px auto;
   position: relative;
 } 
 
 .post-small {
+  padding: 5px;
   background: white;
   border: solid;
-  width: 600px;
-  height: 105px;
+  width: 625px;
+  height: 110px;
   margin: 50px auto;
   position: relative;
 }
@@ -43,5 +45,6 @@ p {
 }
 
 .post_address {
+  // padding-top: 5px;
   margin-left: 50px;
 }

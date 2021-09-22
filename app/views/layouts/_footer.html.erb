@@ -4,6 +4,7 @@
       <li class="footer-list"><%= link_to 'ホーム', root_path, class: 'nav-link f-list' %></li>
       <% if logged_in? %>
       <li class="footer-list"><%= link_to 'プロフィール', user_path(current_user), class: 'nav-link f-list' %></li>
+      <li class="footer-list"><%= link_to '配達を依頼', new_post_path, class: 'nav-link f-list' %></li>
       <li class="footer-list"><%= link_to 'チャットへ', rooms_path, class: 'nav-link f-list' %></li>  
       <% end %>
     </ul>
