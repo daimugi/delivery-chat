@@ -2,8 +2,8 @@
   padding: 5px;
   background: white;
   border: solid;
-  width: 625px;
-  height: 160px;
+  width: 680px;
+  height: 180px;
   margin: 50px auto;
   position: relative;
 } 
@@ -12,8 +12,8 @@
   padding: 5px;
   background: white;
   border: solid;
-  width: 625px;
-  height: 110px;
+  width: 680px;
+  height: 150px;
   margin: 50px auto;
   position: relative;
 }
@@ -33,9 +33,7 @@ p {
   margin: 0.5rem 20px 0 20px;
 }
   
-.post-edit-btn {
-  // text-align: right;
-  // margin-top: 10px;
+.post-btn {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -44,7 +42,12 @@ p {
   }
 }
 
-.post_address {
-  // padding-top: 5px;
-  margin-left: 50px;
+.post-price {
+  color: #00bfff;
+  clear: both;
+}
+
+.p-list {
+  float: left;
+  margin-left: 20px;
 }
