@@ -12,6 +12,7 @@
             <% end %>  
             <div class="profile__name"><%= user.name %></div>
             <hr>
+            <%= @distance %>
             <div class="profile__desc">
               <% if user.introduction? %>
                 <%= truncate(user.introduction, length:20) %>

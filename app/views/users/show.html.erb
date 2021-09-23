@@ -8,7 +8,11 @@
     <div class="show__name"><%= @user.name %></div>
   </div>
   <div class="show__address">
-    <p><i class="fas fa-home"></i>　<%= @user.address %></p>
+    <% if @user.address? %>
+      <p><i class="fas fa-home"></i>　<%= @user.address %></p>
+    <% else %>
+      <p><i class="fas fa-home"></i> 登録されていません</p>
+    <% end %>  
   </div>
   <div class="show__desc">
     <% if @user.introduction? %> 
@@ -20,13 +24,25 @@
 </div>
 
 <div class="user-map">
-  <% unless current_user == @user %>
-    <p class="text-center">
-      <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離　<br>
+  <!--<% unless current_user == @user %>-->
+  <!--<!<p class="text-center">-->
+  <!--  <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離　<br>-->
+  <!--  <i class="fas fa-home"></i> <%= @user.name %>さんのご住所　<%= @user.address %></p>-->
+  <!--<% else %>-->
+  <!--  <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>-->
+  <!--<% end %>-->
+  <% if @user.address? %>
+    <% unless current_user == @user %>
+      <p class="text-center">
+      <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離<br>
       <i class="fas fa-home"></i> <%= @user.name %>さんのご住所　<%= @user.address %></p>
+    <% else %>
+      <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
+    <% end %>  
   <% else %>
-    <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
-  <% end %>
+      <p class="text-center"><i class="fas fa-home"></i> 登録されていません</p>
+  <% end %>  
+    
   <div id='map'></div>
   <script>
     let map;

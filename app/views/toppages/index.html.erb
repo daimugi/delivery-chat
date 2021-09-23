@@ -4,7 +4,20 @@
 </div>
 
 <% if logged_in? %>
-  <%= render 'posts/posts' %>
+  <div class="tab-wrap">
+    <input id="tab01" type="radio" name="tab" class="tab-switch" checked="checked"><label class="tab-label" for="tab01">新着順</label>
+    <div class="tab-content">
+        <%= render 'posts/posts' %>
+    </div>
+    <input id="tab02" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab02">料金順</label>
+    <div class="tab-content">
+        <%= render 'posts/posts_price' %>
+    </div>
+    <input id="tab03" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab03">タブ ③</label>
+    <div class="tab-content">
+        コンテンツ 3
+    </div>
+</div>
   <%= render 'users/users' %>
 <% end %>
 
