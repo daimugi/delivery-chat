@@ -38,7 +38,7 @@
 .user-show {
   display: inline-block;
   height: 500px;
-  width: 900px;
+  width: 950px;
   padding: 2rem;
   border: 1px solid #1a1a1a;
   border-radius: 30px;
@@ -49,10 +49,8 @@
 
 .show__face {
   display: inline-block;
-  // background: #cfc;
   height: 265px;
   width: 250px;
-  // padding: 2rem;
   border: 1px solid #1a1a1a;
   border-radius: 30px;
   color: black;
@@ -93,9 +91,6 @@
   clear: both;
 }
 
-// .show-btn {
-//   margin: 0 500px;
-// }
 
 .user-show-room {
   float: left;
@@ -107,7 +102,7 @@
   margin-left: 550px;
   
   p {
-    margin-right: 100px;
+    margin-right: 50px;
   }
 }
 

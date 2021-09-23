@@ -1,10 +1,10 @@
 <div>
   <% if post.user.image? %>
-    <%= image_tag post.user.image.url, class: 'post_user_img', :alt => '/' %>
+    <%= image_tag post.user.image.url, class: 'post-user-img', :alt => '/' %>
   <% else %>
-    <%= image_tag ('images.png'), class: 'post_user_img', :alt => '/' %>
+    <%= image_tag ('images.png'), class: 'post-user-img', :alt => '/' %>
   <% end %>
-  <div class="post_user_name">
+  <div class="post-user-name text-center">
     <%= post.user.name %>
   </div>
 </div>
