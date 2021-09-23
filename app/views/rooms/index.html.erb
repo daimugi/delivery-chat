@@ -1,12 +1,19 @@
-<p>チャット一覧</p>
-<% unless @users.ids == current_user.id %>
+<p>チャット一覧</p>  
   <% @current_user_entry.each do |cu| %>
     <% @users_entry.each do |u| %>
       <% if cu.room_id == u.room_id then %>
-        <% unless current_user.name == u.user.name %>
-        <p class="user-show-room"><a href="/rooms/<%= cu.room_id %>" class="btn btn-success btn-lg"><%= u.user.name %>さんとのチャット</a></p>
-        <% end %>
+        <% unless u.user == cu.user %>
+          <%= link_to room_path(cu.room_id), class: 'btn btn-lg btn-success' do %>
+          <% if u.user.image? %>
+            <%= image_tag u.user.image.url, class: 'rooms-img', :alt => '/' %>
+            <p><%= u.user.name %></p>
+          <% else %>
+            <%= image_tag ('images.png'), class: 'rooms-img', :alt => '/' %>
+            <p><%= u.user.name %></p>
+          <% end %>
+          <% end %>
+          <!--<p class="user-show-room"><a href="/rooms/<%= cu.room_id %>" class="btn btn-primary btn-lg"><%= u.user.name %>さんとのチャット</a></p>-->
+        <% end %>  
       <% end %>
     <% end %>
   <% end %>  
-<% end %>
