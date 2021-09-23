@@ -5,9 +5,9 @@ class UsersController < ApplicationController
   
   
   def index
-    @users = User.order(id: :desc).page(params[:page]).per(20)
+    @users = User.order(id: :desc).page(params[:page]).per(16)
     @users.each do |user|
-      unless current_user.id == user.id 
+      unless current_user == user 
         lat1 = current_user.latitude
         lng1 = current_user.longitude
         lat2 = user.latitude
@@ -32,8 +32,8 @@ class UsersController < ApplicationController
         degree = Math.atan2(numerator, denominator)
         
         @distance = "#{(degree * radius).round(1)} km"
-      end
-    end  
+      end  
+    end    
   end
 
   def show
