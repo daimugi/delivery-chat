@@ -2,7 +2,7 @@ class Message < ApplicationRecord
   
   
   # with_options presence: true, if: :empty do
-  # validates :content
+  # validates :content, presence: true, if: :empty?
   # validates :image
   # end
   
@@ -10,12 +10,12 @@ class Message < ApplicationRecord
   belongs_to :room
   mount_uploader :image, ImageUploader
   
-  # def empty 
-  #   @message = Message.find_by(content: '', image: '')
-  #   if !@message.content? && !@message.image?
-  #     flash[:alert] = 'メッセージが送信できませんでした'
-  #   end  
-  # end
+  def empty?
+    @message = Message.create(params.require(:message).permit(:user_id, :content, :room_id, :image).merge(user_id: current_user.id))
+    if !@message.image? && !@message.content?
+      flash[:notice] = "メッセージを送信できませんでした"
+    end  
+  end
   
   
 end

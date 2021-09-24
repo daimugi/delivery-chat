@@ -104,7 +104,8 @@
 }
 
 .camera {
-  margin-top: 30px;
+  margin-bottom: -35px;
+  margin-right: 350px;
 }
 
 .chat__time {
@@ -112,6 +113,11 @@
 }
 
 .rooms-img {
+  width: 80px;
+  height: 80px;
+}
+
+#preview {
   width: 80px;
   height: 80px;
 }

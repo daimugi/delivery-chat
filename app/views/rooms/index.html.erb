@@ -4,15 +4,14 @@
       <% if cu.room_id == u.room_id then %>
         <% unless u.user == cu.user %>
           <%= link_to room_path(cu.room_id), class: 'btn btn-lg btn-success' do %>
-          <% if u.user.image? %>
-            <%= image_tag u.user.image.url, class: 'rooms-img', :alt => '/' %>
-            <p><%= u.user.name %></p>
-          <% else %>
-            <%= image_tag ('images.png'), class: 'rooms-img', :alt => '/' %>
-            <p><%= u.user.name %></p>
+            <% if u.user.image? %>
+              <%= image_tag u.user.image.url, class: 'rooms-img', :alt => '/' %>
+              <p><%= u.user.name %></p>
+            <% else %>
+              <%= image_tag ('images.png'), class: 'rooms-img', :alt => '/' %>
+              <p><%= u.user.name %></p>
+            <% end %>
           <% end %>
-          <% end %>
-          <!--<p class="user-show-room"><a href="/rooms/<%= cu.room_id %>" class="btn btn-primary btn-lg"><%= u.user.name %>さんとのチャット</a></p>-->
         <% end %>  
       <% end %>
     <% end %>

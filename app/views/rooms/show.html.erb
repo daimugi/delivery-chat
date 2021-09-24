@@ -20,9 +20,7 @@
               <%= image_tag ('images.png'), :alt => '/' %>
             <% end %>
           </div>
-          <!--<%= m.created_at.strftime("%m-%d %H:%M")%>-->
           <div class="chatting">
-            <!--<div class="chat__time"><%= m.created_at.strftime("%m-%d %H:%M")%></div>-->
             <div class="says">
               <% if m.content? && m.image? %>
                 <p><%= m.content %> <br>
@@ -63,9 +61,32 @@
   
     <div class="posts">
       <%= form_for @message do |f| %>
-        <%= f.label :image do %>
-          <i class="fas fa-camera fa-2x camera"></i><%= f.file_field :image, class: 'hoge'%>
-        <% end %>  
+          <%= f.label :image do %>
+            <i class="fas fa-camera fa-2x camera"></i><%= f.file_field :image, :onchange => 'imgPreView(event)', class: 'hoge'%>
+          <% end %>
+          <div id="preview"></div>
+          <script>
+            function imgPreView(event) {
+              var file = event.target.files[0];
+              var reader = new FileReader();
+              var preview = document.getElementById("preview");
+              var previewImage = document.getElementById("previewImage");
+               
+              if(previewImage != null) {
+                preview.removeChild(previewImage);
+              }
+              reader.onload = function(event) {
+                var img = document.createElement("img");
+                img.setAttribute("src", reader.result);
+                img.setAttribute("id", "previewImage");
+                preview.appendChild(img);
+              };
+             
+              reader.readAsDataURL(file);
+            }
+          </script>
+        
+        
         <%= f.text_field :content, placeholder: "メッセージを入力" , size: 40, class: "form-text-field" %>
         <%= f.hidden_field :room_id, value: @room.id %>
         <%= f.submit "送信",class: 'form-submit'%>
