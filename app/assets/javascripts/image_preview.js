@@ -1,15 +1,18 @@
-$(function () {
-  function readURL(input) {
-    if (input.files && input.files[0]) {
-      var reader = new FileReader();
-      reader.onload = function (e) {
-        $('.img_prev').attr('src', e.target.result);
-      }
-      reader.readAsDataURL(input.files[0]);
-    }
+function imgPreView(event) {
+  var file = event.target.files[0];
+  var reader = new FileReader();
+  var preview = document.getElementById("preview");
+  var previewImage = document.getElementById("previewImage");
+   
+  if(previewImage != null) {
+    preview.removeChild(previewImage);
   }
-
-  $('.img_field').change(function () {
-    readURL(this);
-  });
-});
+  reader.onload = function(event) {
+    var img = document.createElement("img");
+    img.setAttribute("src", reader.result);
+    img.setAttribute("id", "previewImage");
+    preview.appendChild(img);
+  };
+ 
+  reader.readAsDataURL(file);
+}
