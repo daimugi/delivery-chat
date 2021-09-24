@@ -1,14 +1,14 @@
-<p>チャット一覧</p>  
+<!--<p class="text-center">チャット一覧</p>  -->
   <% @current_user_entry.each do |cu| %>
     <% @users_entry.each do |u| %>
       <% if cu.room_id == u.room_id then %>
         <% unless u.user == cu.user %>
-          <%= link_to room_path(cu.room_id), class: 'btn btn-lg btn-success' do %>
+          <%= link_to room_path(cu.room_id), class: 'btn btn-success rooms_icon' do %>
             <% if u.user.image? %>
-              <%= image_tag u.user.image.url, class: 'rooms-img', :alt => '/' %>
+              <%= image_tag u.user.image.url, class: 'rooms_img', :alt => '/' %>
               <p><%= u.user.name %></p>
             <% else %>
-              <%= image_tag ('images.png'), class: 'rooms-img', :alt => '/' %>
+              <%= image_tag ('images.png'), class: 'rooms_img', :alt => '/' %>
               <p><%= u.user.name %></p>
             <% end %>
           <% end %>

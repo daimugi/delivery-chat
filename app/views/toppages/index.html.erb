@@ -3,6 +3,35 @@
   <img src="/assets/toppage.jpg" alt="/">
 </div>
 
+<div class="under-element box2">
+  <span class="box2-title">DeliveryChatとは？</span>
+  <h3>ご年配の方や重い荷物などをご自宅まで運ぶのが困難な方の負担を</h3>
+  <h3 class="naka">少しでも減らしたいと思いから生まれたのがDeliveryChatです。</h3>
+  <h3>荷物などを近くの方にご自宅まで配達してもらえるサービスです！</h3>
+</div>  
+
+<div class="box1">
+  <h3 class="text-center"><i class="fas fa-info-circle"></i>配達を依頼する人向け 使い方</h3>
+  <h2 class="explanation">
+    1.配達してもらう人を選ぶ <br>
+    2.メッセージを送信 <br>
+    3.頼みたい商品を相手に伝えて到着を待つ <br>
+    4.商品を受け取りお金を渡したら取引終了！
+  </h2>  
+</div>
+
+<div class="box1">
+  <h3 class="text-center"><i class="fas fa-info-circle"></i>配達する人向け 使い方</h3>
+  <h2 class="explanation">
+    1.配達依頼を選ぶ <br>
+    2.メッセージを送信 <br>
+    3.頼まれた商品を依頼者まで届ける <br>
+    4.商品を私お金を受け取ったら取引終了！
+  </h2>  
+</div>
+
+
+
 <% if logged_in? %>
   <div class="tab-wrap">
     <input id="tab01" type="radio" name="tab" class="tab-switch" checked="checked"><label class="tab-label" for="tab01">新着順</label>
@@ -13,32 +42,10 @@
     <div class="tab-content">
         <%= render 'posts/posts_price' %>
     </div>
-    <input id="tab03" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab03">タブ ③</label>
+    <input id="tab03" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab03">近い順</label>
     <div class="tab-content">
-        コンテンツ 3
+      333
     </div>
 </div>
   <%= render 'users/users' %>
 <% end %>
-
-  <div class="text-center under-element box2">
-    <span class="box2-title">DeliveryChatとは？</span>
-      <h3>
-        ご年配の方や重い荷物などをご自宅まで運ぶのが困難な方の負担を<br>
-        <br>
-        少しでも減らしたいと思いから生まれたのがDeliveryChatです。<br>
-        <br>
-        荷物などを近くの方にご自宅まで配達してもらえるサービスです！
-      </h3>
-  </div>  
-
-
-<div class="box1">
-  <h3 class="text-center"><i class="fas fa-info-circle"></i> 使い方</h3>
-  <h2>
-    1.配達してもらう人を選ぶ <br>
-    2.メッセージを送信 <br>
-    3.頼みたい商品を相手に伝えて到着を待つ <br>
-    4.商品を受け取りお金を渡したら取引終了！
-  </h2>  
-</div>

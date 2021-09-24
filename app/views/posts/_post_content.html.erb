@@ -13,6 +13,7 @@
     <span class="text-muted post-time p-list"><%= post.created_at.strftime("%m-%d %H:%M") %></span>
     <span class="post-address p-list">お届け先　<%= post.user.address %></span>
     <p class="post-price">料金 <%= post.price %>円</p>
+    <p><%= @distance %></p>
   </div>
   <div>
     <p><%= post.content %></p>
