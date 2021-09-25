@@ -7,9 +7,11 @@
             <% if u.user.image? %>
               <%= image_tag u.user.image.url, class: 'rooms_img', :alt => '/' %>
               <p><%= u.user.name %></p>
+              <p>チャット</p>
             <% else %>
               <%= image_tag ('images.png'), class: 'rooms_img', :alt => '/' %>
               <p><%= u.user.name %></p>
+              <p>チャット</p>
             <% end %>
           <% end %>
         <% end %>  
