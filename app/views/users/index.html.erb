@@ -11,7 +11,7 @@
             <% end %>  
             <div class="profile__name"><%= user.name %></div>
           <hr>
-          <%= @distance %>
+          <p><%= position(user) %></p>
           <%= user.address %>
           <%= current_user.latitude %>
           <%= user.latitude %>

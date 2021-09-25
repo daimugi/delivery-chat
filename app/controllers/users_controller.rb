@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   
   
   def index
+    @users = User.order(id: :desc).page(params[:page]).per(8)
   end
 
   def show
@@ -65,9 +66,6 @@ class UsersController < ApplicationController
     end  
   end
   
-  def search 
-    @users = User.all 
-  end
   
 
   private
