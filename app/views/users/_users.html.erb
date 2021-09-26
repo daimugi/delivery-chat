@@ -12,11 +12,15 @@
             <% end %>  
             <div class="profile__name"><%= user.name %></div>
             <hr>
-            <%= @distance %>
+            <% if user.address? %>
+              <p class="text-center"><i class="fas fa-map-marker-alt"></i>あなたとの距離<br>約<%= position(user) %></p>
+            <% end %>
             <div class="profile__desc">
               <% if user.introduction? %>
+                <i class="far fa-comment"></i> <br>
                 <%= truncate(user.introduction, length:20) %>
               <% else %>
+                <i class="far fa-comment"></i> <br>
                 <p>よろしくお願いします</p>
               <% end %>  
             </div>
