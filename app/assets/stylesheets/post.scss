@@ -51,7 +51,7 @@
 
 .post-price {
   color: #00bfff;
-  margin-left: 20px;
+  margin: 0 20px 15px 20px;
   clear: both;
 }
 
@@ -67,4 +67,8 @@
 .post-left {
   border: solid;
   width: 130px;
+}
+
+.post-distance {
+  color: #ff9e3d;
 }
