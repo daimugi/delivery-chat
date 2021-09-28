@@ -10,11 +10,8 @@
 </div>
 <div class="media-body">
   <div>
-    <% if post.saved_changes? %>
       <span class="text-muted post-time p-list"><%= post.updated_at.strftime("%m-%d %H:%M") %></span>
-    <% else %>
-      <span class="text-muted post-time p-list"><%= post.created_at.strftime("%m-%d %H:%M") %></span>
-    <% end %>
+      <!--<span class="text-muted post-time p-list"><%= post.created_at.strftime("%m-%d %H:%M") %></span>-->
       <span class="post-address p-list">お届け先　<%= post.user.address %></span> <br>
       <span class="post-price">料金 <%= post.price %>円</span>
     <% unless current_user == post.user %>
