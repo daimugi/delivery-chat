@@ -10,7 +10,7 @@
 </div>
 <div class="media-body">
   <div>
-    <% if post.changed? %>
+    <% if post.saved_changes? %>
       <span class="text-muted post-time p-list"><%= post.updated_at.strftime("%m-%d %H:%M") %></span>
     <% else %>
       <span class="text-muted post-time p-list"><%= post.created_at.strftime("%m-%d %H:%M") %></span>
