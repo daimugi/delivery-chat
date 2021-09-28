@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_26_122255) do
+ActiveRecord::Schema.define(version: 2021_09_22_093346) do
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2021_09_26_122255) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "price"
-    t.float "distance"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
