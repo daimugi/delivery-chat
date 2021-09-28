@@ -28,9 +28,8 @@ class UsersController < ApplicationController
         @entry = Entry.new
       end
     end
-    @post = current_user.posts.build
-    @user_posts = Post.where(user_id: current_user.id).order(id: :desc).page(params[:page]).per(10)
-    # @user_posts = Post.order(updated_at: :desc).page(params[:page]).per(5)
+    # @post = current_user.posts.build
+    @user_posts = Post.where(user_id: current_user.id).order(updated_at: :desc).page(params[:page]).per(10)
   end
 
   def new

@@ -90,19 +90,20 @@
   <% end %>  
 </div>  
 
-<!--<div>-->
-<!--  <%= @user_posts.each do |up| %>-->
-<!--    <% if @user == current_user %>-->
-<!--      <% if up.content.length < 51 %>-->
-<!--        <li class="media mb-3 post-small">-->
-<!--          <%= render 'posts/post_content', post: up %>-->
-<!--        </li>-->
-<!--      <% elsif up.content.length < 101 %>-->
-<!--        <li class="media mb-3 post-large">-->
-<!--          <%= render 'posts/post_content', post: up %>-->
-<!--        </li>-->
-<!--      <% end %>  -->
-<!--    <% end %>-->
-<!--  <% end %>-->
-<!--  <%= paginate @user_posts %>-->
-<!--</div>    -->
+<div class="user_posts_index">
+  <h3 class="text-center">配達依頼一覧</h3>
+  <% @user_posts.each do |up| %>
+    <% if @user == current_user %>
+      <% if up.content.length < 51 %>
+        <li class="media mb-3 post-small">
+          <%= render 'posts/post_content', post: up %>
+        </li>
+      <% elsif up.content.length < 101 %>
+        <li class="media mb-3 post-large">
+          <%= render 'posts/post_content', post: up %>
+        </li>
+      <% end %>  
+    <% end %>
+  <% end %>
+  <%= paginate @user_posts %>
+</div>    

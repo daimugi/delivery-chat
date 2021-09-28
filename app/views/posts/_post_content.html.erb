@@ -10,12 +10,11 @@
 </div>
 <div class="media-body">
   <div>
-      <span class="text-muted post-time p-list"><%= post.updated_at.strftime("%m-%d %H:%M") %></span>
-      <!--<span class="text-muted post-time p-list"><%= post.created_at.strftime("%m-%d %H:%M") %></span>-->
-      <span class="post-address p-list">お届け先　<%= post.user.address %></span> <br>
-      <span class="post-price">料金 <%= post.price %>円</span>
+    <span class="text-muted post-time p-list"><%= post.updated_at.strftime("%m-%d %H:%M") %></span>
+    <span class="post-address p-list">お届け先　<%= post.user.address %></span> <br>
+    <span class="post-price">料金 <%= post.price %>円</span>
     <% unless current_user == post.user %>
-      <span class="post-distance">距離約<%= position(post.user) %></span>
+    <span class="post-distance">距離約<%= position(post.user) %></span>
     <% end %>
   </div>
   <hr>
