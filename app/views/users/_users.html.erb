@@ -1,7 +1,7 @@
 <h2 class="text-center">ユーザー一覧</h2>
 <% if @users.any? %>
   <% @users.each do |user| %>
-    <% unless current_user.id == user.id %>
+    
       <%= link_to  user_path(user), 'data-turbolinks': false do %>
         <div class="parent">
           <div class="profile">
@@ -27,8 +27,7 @@
           </div>
         </div>
       <% end %>  
-    <% end %>
+ 
   <% end %>
-  
-<% end %>
 <div class="paginate"><%= paginate @users %></div>
+<% end %>

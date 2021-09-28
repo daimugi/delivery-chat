@@ -14,4 +14,8 @@ Rails.application.routes.draw do
   resources :rooms, only: [:create, :show, :index]
   resources :posts, only: [:new, :create, :edit, :update, :destroy]
   
+  # devise_for :users, controllers: {
+  #   sessions:      'users/sessions',
+  #   registrations: 'users/registrations'
+  # }
 end
