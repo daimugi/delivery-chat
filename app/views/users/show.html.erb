@@ -90,6 +90,7 @@
   <% end %>  
 </div>  
 
+<% if @user == current_user %>
 <% if @user.posts.any? %>
 <div class="user_posts_index">
   <h3 class="text-center">配達依頼一覧</h3>
@@ -108,4 +109,5 @@
   <% end %>
   <%= paginate @user_posts %>
 </div>
+<% end %>
 <% end %>
