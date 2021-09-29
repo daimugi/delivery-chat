@@ -5,9 +5,9 @@ class MessagesController < ApplicationController
   def create
     if Entry.where(user_id: current_user.id, room_id: params[:message][:room_id]).present?
       @message = Message.create(params.require(:message).permit(:user_id, :content, :room_id, :image).merge(user_id: current_user.id))
-      if !@message.content? && !@message.image?
-        flash[:alert] = 'メッセージが送信できませんでした'
-      end  
+      # if !@message.content? && !@message.image?
+      #   flash[:alert] = 'メッセージが送信できませんでした'
+      # end  
     else
       flash[:alert] = 'メッセージが送信できませんでした'
     end 

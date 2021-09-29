@@ -1,19 +1,15 @@
 class Message < ApplicationRecord
   
-  
-  # with_options presence: true, if: :empty do
-  # validates :content, presence: true, if: :confirm
-  # validates :image, presence: true
-  # end
+  validate :required_either_image_or_content
   
   belongs_to :user
   belongs_to :room
   mount_uploader :image, ImageUploader
   
-  # def confirm
-  #   if @message.content.nil? && @message.image.nil?
-  #   end  
-  # end
+  def required_either_image_or_content
+    return if image.nil? && !content.empty?
+    errors.add(:base, '画像または文字のどちらか一方で投稿可能です')
+  end
   
   
 end
