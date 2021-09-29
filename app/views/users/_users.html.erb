@@ -1,4 +1,5 @@
 <h2 class="text-center">ユーザー一覧</h2>
+<div>
 <% if @users.any? %>
   <% @users.each do |user| %>
     
@@ -29,5 +30,7 @@
       <% end %>  
  
   <% end %>
-<div class="paginate"><%= paginate @users %></div>
+<!--<div id="pagi" class="paginate"><%= paginate @users %></div>-->
 <% end %>
+<!--<%= paginate @users %>-->
+</div>

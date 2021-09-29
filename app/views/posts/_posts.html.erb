@@ -10,7 +10,5 @@
       </li>
     <% end %>  
   <% end %>
-  <div class="kaminari">
-    <%= paginate @posts %>
-  </div>
+  <%= paginate @posts, :param_name => 'updated_at_page' %>
 </ul>

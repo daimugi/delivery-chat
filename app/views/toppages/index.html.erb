@@ -50,7 +50,8 @@
     <div class="tab-content">
       <%= render 'posts/posts_distance' %>
     </div>
-</div>
+  </div>
 
   <%= render 'users/users' %>
+  <%= paginate @users %>
 <% end %>
