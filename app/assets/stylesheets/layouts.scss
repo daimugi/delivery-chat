@@ -52,7 +52,7 @@
      margin: 15px auto;
     }
  
-    .naka {
+    .tyuu {
      margin-left: -25px;
     }
   }
@@ -104,13 +104,7 @@
     background-color: black;
   }
   
-  // .footer-menu{
-  //   float: left;
-  //   // height: 40px;
-  // }
-  
   .f-list {
-    // text-align: center;
     color: white;
     height: 1rem;
     margin-left: 5%;
@@ -118,15 +112,13 @@
   }
   
   .copyright{
-    // clear: both;
-    // text-align: center;
     margin-left: 5%;
     margin-bottom: 0;
   }
   
   .box1 {
     padding: 0.5rem 0;
-    margin: 50px 0 50px 120px;
+    margin: 2rem auto;
     color: #2c2c2f;
     width: 80%;
     background: #ffffe0;
@@ -134,9 +126,61 @@
     border-bottom: solid 5px seagreen;
  
     .explanation {
-      margin-left: 150px;
+      margin: 2rem auto;
+      font-size: 1.2rem;
     }
-  } 
+    
+    .box1_info {
+      font-size: 1.5rem;
+    }
+  }
+  
+  .toppage {
+  
+    img {
+      width: 60%;
+      height: 40%
+    }
+  }
+  
+  .logo {
+   width: 5%;
+   height: 5%;
+  }
+  
+  .parent1 {
+    text-align: center;
+  }
+  
+  .box2 {
+    position: relative;
+    margin-top: 10%;
+    padding: 1rem 1rem;
+    border: solid 3px seagreen;
+    background: #cde4ff;
+    display: inline-block;
+    height: 10%;
+    width: 80%;
+    
+    .exp {
+      font-size: 1.3rem;
+    }
+
+    .box2-title {
+      position: absolute;
+      display: inline-block;
+      top: -10%;
+      left: -3px;
+      padding: 0 9px;
+      height: 1rem;
+      line-height: 1rem;
+      font-size: 1rem;
+      background: seagreen;
+      color: #ffffff;
+      font-weight: bold;
+      border-radius: 5px 5px 0 0;
+    }
+  }  
 }
 
 
