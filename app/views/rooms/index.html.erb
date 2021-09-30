@@ -1,20 +1,24 @@
 <h2 class="text-center">チャット一覧</h2>
-<% @current_user_entry.each do |cu| %>
-  <% @users_entry.each do |u| %>
-    <% if cu.room_id == u.room_id then %>
-      <% unless u.user == cu.user %>
-        <%= link_to room_path(cu.room_id), class: 'btn btn-success rooms_icon' do %>
-          <% if u.user.image? %>
-            <%= image_tag u.user.image.url, class: 'rooms_img', :alt => '/' %>
-            <p><%= u.user.name %></p>
-            <p>チャット</p>
-          <% else %>
-            <%= image_tag ('images.png'), class: 'rooms_img', :alt => '/' %>
-            <p><%= u.user.name %></p>
-            <p>チャット</p>
+<div class="row">
+  <div class="offset-sm-2 col-sm-8 rooms_btn">
+  <% @current_user_entry.each do |cu| %>
+    <% @users_entry.each do |u| %>
+      <% if cu.room_id == u.room_id then %>
+        <% unless u.user == cu.user %>
+          <%= link_to room_path(cu.room_id), class: 'btn btn-success rooms_icon' do %>
+            <% if u.user.image? %>
+              <%= image_tag u.user.image.url, class: 'rooms_img', :alt => '/' %>
+              <p><%= u.user.name %></p>
+              <p>チャット</p>
+            <% else %>
+              <%= image_tag ('images.png'), class: 'rooms_img', :alt => '/' %>
+              <p><%= u.user.name %></p>
+              <p>チャット</p>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
   <% end %>
-<% end %>  
+  </div>
+</div>

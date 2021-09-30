@@ -2,6 +2,11 @@
 <div class="row">
   <aside class="offset-sm-4 col-sm-4">
     <%= form_with(model: @post, local: true) do |f| %>
+      
+      <div class="form-group">
+        <p>お届け先 : <%= current_user.address %></p>
+      </div>
+      
       <div class="form-group">
         <%= f.label :price, '料金（円）' %>
         <%= f.number_field :price, class: 'form-control' %>

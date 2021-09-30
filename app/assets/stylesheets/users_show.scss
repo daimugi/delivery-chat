@@ -73,8 +73,8 @@
     margin: 2rem 0;
   }
 
-  .chat-btn {
-    margin-left: 500px;
+  .user-room-btn {
+    text-align: center;
   }
 
   .user-post {
@@ -91,7 +91,6 @@
   
   .parent_show {
     margin: 0 auto;
-    // padding: 0 auto;
     text-align: center;
   }
   
@@ -136,6 +135,10 @@
   
   .user-post {
     margin: 2rem auto;
+    text-align: center;
+  }
+  
+  .user-room-btn {
     text-align: center;
   }
 }

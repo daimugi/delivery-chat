@@ -1,71 +1,71 @@
 <div class="parent_show">
-<div class="user-show">
-  <div class="show__face">
-    <% if @user.image? %>
-      <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
-    <% else %>
-      <%= image_tag ('images.png'), class: 'show__img', :alt => '/' %>
-    <% end %>
-    <div class="show__name"><%= @user.name %></div>
+  <div class="user-show">
+    <div class="show__face">
+      <% if @user.image? %>
+        <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
+      <% else %>
+        <%= image_tag ('images.png'), class: 'show__img', :alt => '/' %>
+      <% end %>
+      <div class="show__name"><%= @user.name %></div>
+    </div>
+    <div class="show__address">
+      <% if @user.address? %>
+        <p><i class="fas fa-home"></i> :　<%= @user.address %></p>
+      <% else %>
+        <p><i class="fas fa-home"></i> : 登録されていません</p>
+      <% end %>  
+    </div>
+    <div class="show__desc">
+      <% if @user.introduction? %> 
+        <i class="far fa-comment"></i> : <%= @user.introduction %>
+      <% else %>
+        <i class="far fa-comment"></i> : <p>よろしくお願いします</p>
+      <% end %> 
+    </div>
   </div>
-  <div class="show__address">
-    <% if @user.address? %>
-      <p><i class="fas fa-home"></i> :　<%= @user.address %></p>
-    <% else %>
-      <p><i class="fas fa-home"></i> : 登録されていません</p>
-    <% end %>  
-  </div>
-  <div class="show__desc">
-    <% if @user.introduction? %> 
-      <i class="far fa-comment"></i> : <%= @user.introduction %>
-    <% else %>
-      <i class="far fa-comment"></i> : <p>よろしくお願いします</p>
-    <% end %> 
-  </div>
-</div>
-
-<div class="user-map">
-  <% if @user.address? %>
-    <% if current_user == @user %>
-      <p class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
-    <% else %>
-      <p class="text-center">
-      <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離<br>
-      <i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
-    <% end %>  
-  <% else %>
-      <p class="text-center"><i class="fas fa-home"></i> 登録されていません</p>
-  <% end %>  
     
-  <div id='map' class="map"></div>
-  <script>
-    let map;
-  
-    function initMap() {
-      geocoder = new google.maps.Geocoder()
+    <div class="user-map">
+      <% if @user.address? %>
+        <% if current_user == @user %>
+          <p class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
+        <% else %>
+          <p class="text-center">
+          あなたとの距離約<%= @distance %>　※距離は直線距離<br>
+          <i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
+        <% end %>  
+      <% else %>
+          <p class="text-center"><i class="fas fa-home"></i> 登録されていません</p>
+      <% end %>  
+        
+      <div id='map' class="map"></div>
+      <script>
+        let map;
       
-      map = new google.maps.Map(document.getElementById('map'), {
-        // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
-        center: {
-          lat: gon.user.latitude,
-          lng: gon.user.longitude
-        },
-        zoom: 15,
-      });
-  
-      marker = new google.maps.Marker({
-        // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
-        position: {
-          lat: gon.user.latitude,
-          lng: gon.user.longitude
-        },
-        map: map
-      });
-    }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
-</div> 
-</div>
+        function initMap() {
+          geocoder = new google.maps.Geocoder()
+          
+          map = new google.maps.Map(document.getElementById('map'), {
+            // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+            center: {
+              lat: gon.user.latitude,
+              lng: gon.user.longitude
+            },
+            zoom: 15,
+          });
+      
+          marker = new google.maps.Marker({
+            // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+            position: {
+              lat: gon.user.latitude,
+              lng: gon.user.longitude
+            },
+            map: map
+          });
+        }
+      </script>
+      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
+    </div> 
+</div>  
 
 
 
@@ -77,7 +77,7 @@
   <% end %>
 </div>
  
-<div>  
+<div class="user-room-btn">  
   <% unless @user.id == current_user.id %>
     <% if @isRoom == true %>
       <p><a href="/rooms/<%= @roomId %>" class="btn btn-success btn-lg chat-btn">チャットへ</a></p>
