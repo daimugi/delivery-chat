@@ -1,4 +1,4 @@
-<div>
+<div class="users_index">
 <% if @users.any? %>
   <% @users.each do |user| %>
   
@@ -29,5 +29,4 @@
   <% end %>  
 <div class="u_pagenation"><%= paginate @users %></div>
 <% end %>
-<!--<%= paginate @users %>-->
 </div>

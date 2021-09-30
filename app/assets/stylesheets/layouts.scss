@@ -25,7 +25,7 @@
 
   .box1 {
     padding: 0.5rem 0;
-    margin: 50px 0 50px 120px;
+    margin: 2rem auto;
     color: #2c2c2f;
     width: 80%;
     background: #ffffe0;
@@ -36,17 +36,21 @@
       margin-left: 150px;
     }
   } 
-
+  
+  .parent2 {
+    text-align: center;
+  }
+  
   .box2 {
     position: relative;
-    margin: 50px 0 30px 120px;
+    margin-top: 4rem;
     text-align: center;
     padding: 1rem 1rem;
     border: solid 3px seagreen;
     background: #cde4ff;
     display: inline-block;
-    height: 170px;
-    width: 900px;
+    height: 50%;
+    width: 90%;
  
     .h3 {
      margin: 15px auto;
@@ -148,7 +152,7 @@
    height: 5%;
   }
   
-  .parent1 {
+  .parent2 {
     text-align: center;
   }
   
