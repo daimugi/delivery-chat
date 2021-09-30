@@ -89,6 +89,10 @@
    width: 30px;
    height: 34px;
   }
+  
+  .navbar {
+    width: 100%;
+  }
 } 
 
 
@@ -177,5 +181,15 @@
       border-radius: 5px 5px 0 0;
     }
   }  
+  
+  .navbar {
+    position: relative;
+  }
+  
+  .navbar-toggler {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+  }
 }
 
