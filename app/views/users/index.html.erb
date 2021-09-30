@@ -1,8 +1,7 @@
-<!--<%= paginate @users %>-->
 <div>
 <% if @users.any? %>
   <% @users.each do |user| %>
-    <% unless current_user.id == user.id %>
+  
       <%= link_to  user_path(user), 'data-turbolinks': false do %>
         <div class="parent">
           <div class="profile">
@@ -25,10 +24,10 @@
             </div>
           </div>
         </div>
-      <% end %>  
+
     <% end %>
   <% end %>  
-<!--<%= paginate @users %>-->
+<div class="u_pagenation"><%= paginate @users %></div>
 <% end %>
-<%= paginate @users %>
+<!--<%= paginate @users %>-->
 </div>
