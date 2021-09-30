@@ -1,3 +1,5 @@
+<!--<%= paginate @users %>-->
+<div>
 <% if @users.any? %>
   <% @users.each do |user| %>
     <% unless current_user.id == user.id %>
@@ -11,10 +13,9 @@
             <% end %>  
             <div class="profile__name"><%= user.name %></div>
           <hr>
-          <p><%= position(user) %></p>
-          <%= user.address %>
-          <%= current_user.latitude %>
-          <%= user.latitude %>
+            <% if user.address? %>
+              <p class="text-center profile__address"><i class="fas fa-map-marker-alt"></i>あなたとの距離<br>約<%= position(user) %></p>
+            <% end %>
             <div class="profile__desc">
               <% if user.introduction? %>
                 <%= truncate(user.introduction, length:20) %>
@@ -27,5 +28,7 @@
       <% end %>  
     <% end %>
   <% end %>  
-<%= paginate @users %>
+<!--<%= paginate @users %>-->
 <% end %>
+<%= paginate @users %>
+</div>

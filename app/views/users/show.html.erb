@@ -1,3 +1,4 @@
+<div class="parent_show">
 <div class="user-show">
   <div class="show__face">
     <% if @user.image? %>
@@ -9,16 +10,16 @@
   </div>
   <div class="show__address">
     <% if @user.address? %>
-      <p><i class="fas fa-home"></i>　<%= @user.address %></p>
+      <p><i class="fas fa-home"></i> :　<%= @user.address %></p>
     <% else %>
-      <p><i class="fas fa-home"></i> 登録されていません</p>
+      <p><i class="fas fa-home"></i> : 登録されていません</p>
     <% end %>  
   </div>
   <div class="show__desc">
     <% if @user.introduction? %> 
-      <%= @user.introduction %>
+      <i class="far fa-comment"></i> : <%= @user.introduction %>
     <% else %>
-      <p>よろしくお願いします</p>
+      <i class="far fa-comment"></i> : <p>よろしくお願いします</p>
     <% end %> 
   </div>
 </div>
@@ -26,17 +27,17 @@
 <div class="user-map">
   <% if @user.address? %>
     <% if current_user == @user %>
-      <p class="text-center"><i class="fas fa-home"></i> あなたのご住所　<%= @user.address %></p>
+      <p class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
     <% else %>
       <p class="text-center">
       <%= current_user.name %>さんとの距離約<%= @distance %>　※距離は直線距離<br>
-      <i class="fas fa-home"></i> <%= @user.name %>さんのご住所　<%= @user.address %></p>
+      <i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
     <% end %>  
   <% else %>
       <p class="text-center"><i class="fas fa-home"></i> 登録されていません</p>
   <% end %>  
     
-  <div id='map'></div>
+  <div id='map' class="map"></div>
   <script>
     let map;
   
@@ -63,7 +64,8 @@
     }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
-</div>  
+</div> 
+</div>
 
 
 

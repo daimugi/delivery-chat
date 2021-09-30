@@ -17,25 +17,34 @@
  @import "font-awesome-sprockets";
  @import "font-awesome";
  
- #map {
-  height: 400px;
-  margin-left: 50px;
-  text-align: left;
-  width: 400px;
- }
+  #map {
+    height: 400px;
+    margin-left: 50px;
+    text-align: left;
+    width: 400px;
+  }
+ 
+  @media (max-width: 999px) {
+    #map {
+      width: 350px;
+      height: 350px;
+    // margin-left: 50px;
+      // text-align: left;
+    }
+  }
 
- html,body {
-  height: 100%;
-  background: #98d98e;
- }
+  html,body {
+    height: 100%;
+    background: #98d98e;
+  }
  
- .container {
-  min-height: 100%;
-  padding-bottom: 100px;
- }
+  .container {
+    min-height: 100%;
+    padding-bottom: 150px;
+  }
  
- .pagination {
-  justify-content: center;
- }
+  .pagination {
+    justify-content: center;
+  }
  
  
