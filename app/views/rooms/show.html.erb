@@ -44,7 +44,7 @@
     <% @messages.each do |m| %>
       <div class="mycomment">
         <% if current_user == m.user %>
-        <%= m.created_at.strftime("%m-%d %H:%M")%>
+        <%= m.created_at.strftime("%m-%d %H:%M") %>
           <% if m.content? && m.image? %>
             <p><%= m.content %> <br>
             <%= image_tag m.image.url, :alt => '/' %></p>
