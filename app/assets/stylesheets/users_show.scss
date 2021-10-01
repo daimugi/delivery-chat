@@ -1,74 +1,118 @@
 @media (min-width: 1000px) {
+  
+  .parent_show {
+    margin: 0 auto;
+    height: 60vh;
+    width: 90%;
+    background: white;
+    border: solid;
+    // float: left;
+    text-align: center;
+    // padding: 20% 0;
+  }
+  
   .user-show {
-    display: inline-block;
-    height: 500px;
-    width: 950px;
-    padding: 2rem;
-    border: 1px solid #1a1a1a;
-    border-radius: 30px;
-    color: black;
-    margin: 50px 0 50px 130px;
-    background: #cfc;
+    // display: inline-block;
+    height: 100%;
+    // width: 50%;
+    // padding: 2rem;
+    // border: 1px solid #1a1a1a;
+    // border-radius: 30px;
+    // color: black;
+    // margin-top: -15%;
+    // background: #cfc;
+    // margin: 1.5rem;
+    // padding: 0 auto;
+  }
+  
+  .user-map {
+    // width: 120%;
+    height: 100%;
+    // border: solid red;
+    // margin: 0 auto;
+    // text-align: center;
+    
+    p {
+      margin: 0.5rem 0;
+      
+    }
+    
+    #map {
+      height: 0;
+      overflow: hidden;
+      // padding-bottom: 56.25%;
+      padding-bottom: 75%;
+      position: relative;
+    }
+    
+    .gmap iframe {
+      position: absolute;
+      left: 0;
+      top: 0;
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .show__face {
     display: inline-block;
-    height: 265px;
-    width: 250px;
-    border: 1px solid #1a1a1a;
-    border-radius: 30px;
+    height: 50%;
+    width: 50%;
+    border-radius: 10%;
     color: black;
+    margin: 1.3rem 0;
+    text-align: center;
   }
 
   .show__img {
     display: block;
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     border: solid;
     border-radius: 50%;
     margin: 1rem auto;
+    text-align: center;
   }
 
   .show__name {
     text-align: center;
     font-weight: bold;
     font-size: 1.2rem;
-    margin: 1rem auto 1rem;
+    margin: 1rem auto;
     letter-spacing: .1rem;
   }
 
   .show__address {
-    margin-top: 2rem;
+    text-align: center;
   }
 
   .show__desc {
-    width: 400px;
-    margin: 1rem 0;
+    width: 80%;
+    margin: 0 auto;
+    position: relative;
+    
+    .u_comment {
+      margin: 2% 0 40% 5%;
+      position: absolute;
+      left: 0;
+    }
+    
+    p {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-left: 2.5rem;
+      width: 90%;
+      text-align: left;
+    }
   }
-
-  .element {
-    float: left;
-  }
-
-  .under-element {
-    clear: both;
-  }
-
 
   .user-show-room {
     float: left;
     margin: 20px;
   }
 
-  .user-map {
-    margin-top: -520px;
-    margin-left: 550px;
-    
-    p {
-      margin-right: 50px;
-    }
-  }
-
+  
   h2 {
     margin: 2rem 0;
   }
@@ -76,10 +120,20 @@
   .user-room-btn {
     text-align: center;
   }
+  
+  .u_element {
+    float: left;
+    // display: inline-block;
+    margin: 0 0.5rem;
+    // border: solid green;
+    width: 48%;
+    // height: 100%;
+  }
 
   .user-post {
-    margin: 50px 0 0 50px;
+    margin-top: 2rem;
     text-align: center;
+    clear: both;
   }
   
   .user_posts_index {
@@ -141,4 +195,6 @@
   .user-room-btn {
     text-align: center;
   }
+  
+  
 }

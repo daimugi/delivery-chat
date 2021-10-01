@@ -1,5 +1,5 @@
 <div class="parent_show">
-  <div class="user-show">
+  <div class="user-show u_element">
     <div class="show__face">
       <% if @user.image? %>
         <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
@@ -17,14 +17,14 @@
     </div>
     <div class="show__desc">
       <% if @user.introduction? %> 
-        <i class="far fa-comment"></i> : <%= @user.introduction %>
+        <span><i class="far fa-comment u_comment"></i></span><p><%= @user.introduction %></p>
       <% else %>
-        <i class="far fa-comment"></i> : <p>よろしくお願いします</p>
+        <span><i class="far fa-comment u_comment"></i></span><p>よろしくお願いします</p>
       <% end %> 
     </div>
   </div>
     
-    <div class="user-map">
+    <div class="user-map u_element">
       <% if @user.address? %>
         <% if current_user == @user %>
           <p class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
@@ -33,11 +33,9 @@
           あなたとの距離約<%= @distance %>　※距離は直線距離<br>
           <i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
         <% end %>  
-      <% else %>
-          <p class="text-center"><i class="fas fa-home"></i> 登録されていません</p>
       <% end %>  
         
-      <div id='map' class="map"></div>
+      <div id='map'></div>
       <script>
         let map;
       
