@@ -1,10 +1,9 @@
 module PostsHelper
   
   def name_scan(x)
-    r = x.name
-    s = x.name.length
+    a = x.name
     n = 8
-    s_name = r.scan(/.{1,#{n}}/).join(' ')
+    s_name = a.scan(/.{1,#{n}}/).join(' ')
     return s_name
   end  
 end

@@ -1,7 +1,6 @@
 <div class="users_index">
 <% if @users.any? %>
   <% @users.each do |user| %>
-  
       <%= link_to  user_path(user), 'data-turbolinks': false do %>
         <div class="parent">
           <div class="profile">
@@ -12,19 +11,18 @@
             <% end %>  
             <div class="profile__name"><%= user.name %></div>
           <hr>
-            <% if user.address? %>
+            <% if logged_in? %>
               <p class="text-center profile__address"><i class="fas fa-map-marker-alt"></i>あなたとの距離<br>約<%= position(user) %></p>
-            <% end %>
+            <% end %>  
             <div class="profile__desc">
               <% if user.introduction? %>
-                <%= truncate(user.introduction, length:20) %>
+                <i class="far fa-comment"></i> : <%= truncate(user.introduction, length:20) %>
               <% else %>
-                <p>よろしくお願いします</p>
+                <i class="far fa-comment"></i> : <span>よろしくお願いします</span>
               <% end %>  
             </div>
           </div>
         </div>
-
     <% end %>
   <% end %>  
 <div class="u_pagenation"><%= paginate @users %></div>

@@ -24,13 +24,14 @@
     </div>
   </div>
     
+    <% if logged_in? %>
     <div class="user-map u_element">
       <% if @user.address? %>
         <% if current_user == @user %>
           <p class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
         <% else %>
           <p class="text-center">
-          あなたとの距離約<%= @distance %>　※距離は直線距離<br>
+          あなたとの距離約<%= position(@user) %>　※距離は直線距離<br>
           <i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
         <% end %>  
       <% end %>  
@@ -64,50 +65,50 @@
       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
     </div> 
 </div>  
+<% end %>
 
 
-
-<div class="user-post">
-  <% if current_user == @user %> 
-    <%= link_to new_post_path, class: 'btn btn-primary btn-lg' do %>
-      <i class="fas fa-shopping-cart"></i> 配達を依頼
-    <% end %>
-  <% end %>
-</div>
- 
-<div class="user-room-btn">  
-  <% unless @user.id == current_user.id %>
-    <% if @isRoom == true %>
-      <p><a href="/rooms/<%= @roomId %>" class="btn btn-success btn-lg chat-btn">チャットへ</a></p>
-    <% else %>
-      <%= form_for @room do |f| %>
-        <%= fields_for @entry do |e| %>
-          <%= e.hidden_field :user_id, value: @user.id %>
-        <% end %>
-        <%= f.submit 'チャットを始める', class: "btn btn-primary btn-lg chat-btn" %>
+  <div class="user-post">
+    <% if current_user == @user %> 
+      <%= link_to new_post_path, class: 'btn btn-primary btn-lg' do %>
+        <i class="fas fa-shopping-cart"></i> 配達を依頼
       <% end %>
     <% end %>
-  <% end %>  
-</div>  
+  </div>
+ 
+  <div class="user-room-btn">  
+    <% unless @user.id == current_user.id %>
+      <% if @isRoom == true %>
+        <p><a href="/rooms/<%= @roomId %>" class="btn btn-success btn-lg chat-btn">チャットへ</a></p>
+      <% else %>
+        <%= form_for @room do |f| %>
+          <%= fields_for @entry do |e| %>
+            <%= e.hidden_field :user_id, value: @user.id %>
+          <% end %>
+          <%= f.submit 'チャットを始める', class: "btn btn-primary btn-lg chat-btn" %>
+        <% end %>
+      <% end %>
+    <% end %>  
+  </div>  
 
-<% if @user == current_user %>
-<% if @user.posts.any? %>
-<div class="user_posts_index">
-  <h3 class="text-center">配達依頼一覧</h3>
-  <% @user_posts.each do |up| %>
-    <% if @user == current_user %>
-      <% if up.content.length < 51 %>
-        <li class="media mb-3 post-small">
-          <%= render 'posts/post_content', post: up %>
-        </li>
-      <% elsif up.content.length < 101 %>
-        <li class="media mb-3 post-large">
-          <%= render 'posts/post_content', post: up %>
-        </li>
-      <% end %>  
+  <% if @user == current_user %>
+    <% if @user.posts.any? %>
+    <div class="user_posts_index">
+      <h3 class="text-center">配達依頼一覧</h3>
+      <% @user_posts.each do |up| %>
+        <% if @user == current_user %>
+          <% if up.content.length < 51 %>
+            <li class="media mb-3 post-small">
+              <%= render 'posts/post_content', post: up %>
+            </li>
+          <% elsif up.content.length < 101 %>
+            <li class="media mb-3 post-large">
+              <%= render 'posts/post_content', post: up %>
+            </li>
+          <% end %>  
+        <% end %>
+      <% end %>
+      <%= paginate @user_posts %>
+    </div>
     <% end %>
   <% end %>
-  <%= paginate @user_posts %>
-</div>
-<% end %>
-<% end %>
