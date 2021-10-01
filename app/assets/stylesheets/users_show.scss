@@ -6,31 +6,15 @@
     width: 90%;
     background: white;
     border: solid;
-    // float: left;
     text-align: center;
-    // padding: 20% 0;
   }
   
   .user-show {
-    // display: inline-block;
     height: 100%;
-    // width: 50%;
-    // padding: 2rem;
-    // border: 1px solid #1a1a1a;
-    // border-radius: 30px;
-    // color: black;
-    // margin-top: -15%;
-    // background: #cfc;
-    // margin: 1.5rem;
-    // padding: 0 auto;
   }
   
   .user-map {
-    // width: 120%;
     height: 100%;
-    // border: solid red;
-    // margin: 0 auto;
-    // text-align: center;
     
     p {
       margin: 0.5rem 0;
@@ -40,7 +24,6 @@
     #map {
       height: 0;
       overflow: hidden;
-      // padding-bottom: 56.25%;
       padding-bottom: 75%;
       position: relative;
     }
@@ -123,11 +106,8 @@
   
   .u_element {
     float: left;
-    // display: inline-block;
     margin: 0 0.5rem;
-    // border: solid green;
     width: 48%;
-    // height: 100%;
   }
 
   .user-post {
