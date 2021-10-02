@@ -29,11 +29,17 @@
     color: #2c2c2f;
     width: 80%;
     background: #ffffe0;
-    border-top: solid 5px seagreen;
-    border-bottom: solid 5px seagreen;
- 
+    border: solid 5px seagreen;
+    text-align: center;
+    
+    .box1_info {
+      border-bottom: solid;
+      display: inline-block;
+    }
+    
     .explanation {
-      margin-left: 150px;
+      margin-left: 2rem;
+      text-align: start;
     }
   } 
   
@@ -44,20 +50,15 @@
   .box2 {
     position: relative;
     margin-top: 4rem;
-    text-align: center;
     padding: 1rem 1rem;
     border: solid 3px seagreen;
     background: #cde4ff;
     display: inline-block;
     height: 50%;
-    width: 90%;
- 
-    .h3 {
-     margin: 15px auto;
-    }
- 
-    .tyuu {
-     margin-left: -25px;
+    width: 80%;
+    
+    .exp {
+      text-align: start;
     }
   }
 
@@ -126,16 +127,18 @@
     color: #2c2c2f;
     width: 80%;
     background: #ffffe0;
-    border-top: solid 5px seagreen;
-    border-bottom: solid 5px seagreen;
- 
-    .explanation {
-      margin: 2rem auto;
-      font-size: 1.2rem;
-    }
+    border: solid 5px seagreen;
+    text-align: center;
     
     .box1_info {
-      font-size: 1.5rem;
+      border-bottom: solid;
+      display: inline-block;
+    }
+ 
+    .explanation {
+      margin: 1rem auto;
+      font-size: 1.2rem;
+      text-align: start;
     }
   }
   
@@ -168,12 +171,13 @@
     
     .exp {
       font-size: 1.3rem;
+      text-align: start;
     }
 
     .box2-title {
       position: absolute;
       display: inline-block;
-      top: -10%;
+      top: -18px;
       left: -3px;
       padding: 0 9px;
       height: 1rem;
