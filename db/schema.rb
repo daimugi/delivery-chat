@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_22_093346) do
+ActiveRecord::Schema.define(version: 2021_10_03_144710) do
 
   create_table "entries", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "user_id"
@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 2021_09_22_093346) do
     t.string "address"
     t.float "latitude"
     t.float "longitude"
+    t.index ["email"], name: "index_users_on_email", unique: true
   end
 
   add_foreign_key "entries", "rooms"

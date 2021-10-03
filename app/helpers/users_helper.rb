@@ -24,8 +24,8 @@ module UsersHelper
     
     degree = Math.atan2(numerator, denominator)
     
-    @distance = "#{(degree * radius).round(1)} km"
+    distance = "#{(degree * radius).round(1)} km"
     
-    return @distance
+    return distance
   end
 end

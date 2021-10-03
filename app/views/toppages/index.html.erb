@@ -41,12 +41,14 @@
   <div class="tab-content">
     <%= render 'posts/posts_price' %>
   </div>
-  <% if logged_in? %>
   <input id="tab03" type="radio" name="tab" class="tab-switch"><label class="tab-label" for="tab03">近い順</label>
   <div class="tab-content">
-    <%= render 'posts/posts_distance' %>
+    <% if logged_in? %>
+      <%= render 'posts/posts_distance' %>
+    <% else %>
+      <p class="text-center">ログインすると表示されます</p>
+    <% end %>
   </div>
-  <% end %>
 </div>
 
 <%= render template: 'users/index' %>

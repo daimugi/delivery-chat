@@ -5,7 +5,6 @@
     <%= image_tag ('images.png'), class: 'post-user-img', :alt => '/' %>
   <% end %>
   <div class="post-user-name text-center">
-    <!--<span><%= post.user.name %></span>-->
     <% if post.user.name.length > 8 %>
       <%= name_scan(post.user) %>
     <% else %>

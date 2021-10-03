@@ -66,3 +66,7 @@ gem 'openssl'
 group :production do
   gem 'pg', '>= 0.18', '< 2.0'
 end
+group :development do
+  gem 'rubocop', require: false
+  gem 'rubocop-rails'
+end
