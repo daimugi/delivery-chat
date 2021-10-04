@@ -1,14 +1,16 @@
 <ul class="list-unstyled">
   <% @posts_distance.each do |post| %>
-    <% if post.content.length < 51 %>
-      <li class="media mb-3 post-small">
-        <%= render 'posts/post_content', post: post %>
-      </li>
-    <% elsif post.content.length < 101 %>
-      <li class="media mb-3 post-large">
-        <%= render 'posts/post_content', post: post %>
-      </li>
-    <% end %>  
+    <% unless current_user == post.user %>
+      <% if post.content.length < 51 %>
+        <li class="media mb-3 post-small">
+          <%= render 'posts/post_content', post: post %>
+        </li>
+      <% elsif post.content.length < 101 %>
+        <li class="media mb-3 post-large">
+          <%= render 'posts/post_content', post: post %>
+        </li>
+      <% end %>  
+    <% end %>
   <% end %>
 </ul>
 <%= paginate @posts_distance, :param_name => 'distance_page' %>
