@@ -40,3 +40,6 @@ password: 111
   * 画像プレビュー機能(CarrierWave)
 * ページネーション機能(kaminari)
 
+## テスト
+* RSpec
+  * 単体テスト(model)
