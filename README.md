@@ -1,5 +1,3 @@
-README.md
-
 # アプリケーション名
 ### Delivery Chat
 
