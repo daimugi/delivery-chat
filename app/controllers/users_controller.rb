@@ -39,7 +39,13 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:successs] = 'ユーザーを登録しました'
-      redirect_to @user
+      email = params[:user][:email].downcase
+      password = params[:user][:password]
+      if login(email, password)
+        redirect_to @user
+      else 
+        redirect_to @user
+      end  
     else 
       flash.now[:danger] = 'ユーザーの登録に失敗しました'
       render :new
@@ -79,6 +85,16 @@ class UsersController < ApplicationController
     unless @user
       redirect_to root_url
     end  
+  end  
+  
+  def login(email, password)
+    @user = User.find_by(email: email)
+    if @user && @user.authenticate(password)
+      session[:user_id] = @user.id
+      return true
+    else
+      return false
+    end
   end  
   
 
