@@ -17,9 +17,9 @@
     </div>
     <div class="show__desc">
       <% if @user.introduction? %> 
-        <span><i class="far fa-comment u_comment"></i></span><p><%= @user.introduction %></p>
+        <p><i class="far fa-comment u_comment"></i> : <%= @user.introduction %></p>
       <% else %>
-        <span><i class="far fa-comment u_comment"></i></span><p>よろしくお願いします</p>
+        <p><i class="far fa-comment u_comment"></i> : よろしくお願いします</p>
       <% end %> 
     </div>
   </div>
