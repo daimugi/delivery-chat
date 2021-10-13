@@ -1,16 +1,18 @@
 <div>
-  <% if post.user.image? %>
-    <%= image_tag post.user.image.url, class: 'post-user-img', :alt => '/' %>
-  <% else %>
-    <%= image_tag ('images.png'), class: 'post-user-img', :alt => '/' %>
-  <% end %>
-  <div class="post-user-name text-center">
-    <% if post.user.name.length > 8 %>
-      <%= name_scan(post.user) %>
+  <%= link_to user_path(post.user), 'data-turbolinks': false do %>
+    <% if post.user.image? %>
+      <%= image_tag post.user.image.url, class: 'post-user-img', :alt => '/' %>
     <% else %>
-      <%= post.user.name %>
-    <% end %>  
-  </div>
+      <%= image_tag ('images.png'), class: 'post-user-img', :alt => '/' %>
+    <% end %>
+    <div class="post-user-name text-center">
+      <% if post.user.name.length > 8 %>
+        <%= name_scan(post.user) %>
+      <% else %>
+        <%= post.user.name %>
+      <% end %>  
+    </div>
+  <% end %>  
 </div>
 <div class="media-body">
   <div>
@@ -35,6 +37,7 @@
       <%= link_to post, method: :delete, data: {confirm: "削除しますか？"}, class: 'btn delete' do %>
         <i class="far fa-trash-alt size"></i>
       <% end %>  
+    <!--<% else %>-->
     <% end %>
   </div>
 </div>

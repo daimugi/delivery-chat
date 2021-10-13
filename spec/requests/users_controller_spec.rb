@@ -14,12 +14,19 @@ RSpec.describe "Users", type: :request do
   end  
   
   describe "GET #show" do
-    before do
-      require_user_logged_in @user
-    end
     
-    it "正しいビューに遷移する" do
-      get user_path(user)
+    let(:user) {post :login, params: { user: user } } 
+    #無効なユーザー
+    let(:user) { create(:user) }
+    
+    #before doで囲んだ処理は、itの直前に毎回実行される
+    before do
+      # user.login!
+      # user.user_params
+    end  
+    #正常系の処理
+    it 'ログインができること' do 
+      subject 
       expect(response.status).to eq 200
     end  
   end  

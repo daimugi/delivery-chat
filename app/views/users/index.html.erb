@@ -1,7 +1,7 @@
 <div class="users_index">
 <% if @users.any? %>
   <% @users.each do |user| %>
-      <%= link_to  user_path(user), 'data-turbolinks': false do %>
+      <%= link_to user_path(user), 'data-turbolinks': false do %>
         <div class="parent">
           <div class="profile">
             <% if user.image? %>
