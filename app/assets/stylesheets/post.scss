@@ -22,22 +22,25 @@
     
   .post-user-name {
     margin: -5px auto 0 auto;
+    color: black;
     width: 80px;
     height: 80px;
     
     p {
       width: 70px;
       height: 70px;
-      // text-align: start;
-      
     }
   }
+  
+  // .media-face {
+  //   color: black;
+  // }
     
   .post-user-img {
     width: 80px;
     height: 80px;
     margin: 10px 25px;
-    border: solid;
+    border: solid black;
     border-radius: 50%;
   }
     
@@ -85,10 +88,6 @@
 }
 
 @media (max-width: 999px) {
-  
-  // .medea-body {
-  //   height: 30%;
-  // }
   
   .post-large {
     padding: 5px;
@@ -148,8 +147,5 @@
   
   .p-list {
     font-size: 0.9rem;
-  }
-  
-  .p-content {
   }
 }
