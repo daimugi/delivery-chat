@@ -2,6 +2,7 @@ function imgPreView(event) {
   var file = event.target.files[0];
   var reader = new FileReader();
   var preview = document.getElementById("preview");
+  preview.innerHTML = "プレビュー";
   var previewImage = document.getElementById("previewImage");
    
   if(previewImage != null) {
@@ -12,6 +13,7 @@ function imgPreView(event) {
     img.setAttribute("src", reader.result);
     img.setAttribute("id", "previewImage");
     preview.appendChild(img);
+    // document.write("プレビュー")
   };
  
   reader.readAsDataURL(file);
