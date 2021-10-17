@@ -1,6 +1,5 @@
 @media (min-width: 1000px) {
   
-  // footer
   .footer{
     width: 100%;
     position: fixed;
@@ -99,6 +98,10 @@
   
   .navbar {
     width: 100%;
+  }
+  
+  .sign_up {
+    margin-top: 2rem;
   }
 } 
 
@@ -210,6 +213,10 @@
     position: absolute;
     top: 0.5rem;
     right: 1rem;
+  }
+  
+  .sign_up {
+    margin-top: 2rem;
   }
 }
 
