@@ -91,11 +91,9 @@
     <% end %>  
   </div>  
 
-  <% if @user == current_user %>
-    <% if @user.posts.any? %>
+    <% if @user_posts.any? %>
       <h3 class="text-center user_posts_index">配達依頼一覧</h3>
       <% @user_posts.each do |up| %>
-        <% if @user == current_user %>
           <% if up.content.length < 51 %>
             <div class="media mb-3 post-small">
               <%= render 'posts/post_content', post: up %>
@@ -104,9 +102,7 @@
             <div class="media mb-3 post-large">
               <%= render 'posts/post_content', post: up %>
             </div>
-          <% end %>  
+          <% end %>
         <% end %>
-      <% end %>
       <%= paginate @user_posts %>
     <% end %>
-  <% end %>

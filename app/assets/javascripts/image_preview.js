@@ -13,7 +13,6 @@ function imgPreView(event) {
     img.setAttribute("src", reader.result);
     img.setAttribute("id", "previewImage");
     preview.appendChild(img);
-    // document.write("プレビュー")
   };
  
   reader.readAsDataURL(file);
