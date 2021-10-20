@@ -120,19 +120,18 @@
   .parent_show {
     margin: 0 auto;
     text-align: center;
+    border: solid;
+    background: white;
+    width: 90%;
   }
   
   .user-show {
     display: inline-block;
     height: 50%;
-    width: 90%;
+    width: 80%;
     padding: 2rem;
-    border: 1px solid #1a1a1a;
-    border-radius: 10%;
     color: black;
-    margin: 2rem auto;
     text-align: center;
-    background: #cfc;
   }
   
   .show__img {
@@ -157,7 +156,7 @@
     #map {
       width: 330px;
       height: 330px;
-      margin: 0 auto;
+      margin: 1rem auto;
     }
   }
   

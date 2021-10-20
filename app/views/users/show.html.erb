@@ -91,18 +91,18 @@
     <% end %>  
   </div>  
 
-    <% if @user_posts.any? %>
-      <h3 class="text-center user_posts_index">配達依頼一覧</h3>
-      <% @user_posts.each do |up| %>
-          <% if up.content.length < 51 %>
-            <div class="media mb-3 post-small">
-              <%= render 'posts/post_content', post: up %>
-            </div>
-          <% elsif up.content.length < 101 %>
-            <div class="media mb-3 post-large">
-              <%= render 'posts/post_content', post: up %>
-            </div>
-          <% end %>
+  <% if @user_posts.any? %>
+    <h3 class="text-center user_posts_index">配達依頼一覧</h3>
+    <% @user_posts.each do |up| %>
+        <% if up.content.length < 51 %>
+          <div class="media mb-3 post-small">
+            <%= render 'posts/post_content', post: up %>
+          </div>
+        <% elsif up.content.length < 101 %>
+          <div class="media mb-3 post-large">
+            <%= render 'posts/post_content', post: up %>
+          </div>
         <% end %>
-      <%= paginate @user_posts %>
-    <% end %>
+      <% end %>
+    <%= paginate @user_posts %>
+  <% end %>
