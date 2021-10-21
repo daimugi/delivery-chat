@@ -1,4 +1,4 @@
-<h1 class="text-center">ユーザー編集</h1>
+<h1 class="text-center users_edit">ユーザー編集</h1>
 <% if logged_in? %>
 <div class="row">
   <div class="col-sm-6 offset-sm-3">
@@ -24,7 +24,9 @@
         <%= f.file_field :image, class: 'form-control' %>
       </div>
       
-      <%= f.submit '更新する', class: 'btn btn-primary' %>
+      <div class="users_edit_btn">
+        <%= f.submit '更新する', class: 'btn btn-primary' %>
+      </div>
     <% end %>  
   </div>
 </div>
