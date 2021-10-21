@@ -8,7 +8,7 @@
       <ul class="navbar-nav">
         <% if logged_in? %>
           <li class="nav-item">
-            <%= link_to logout_path, method: :delete,  class: 'nav-link' do %>
+            <%= link_to logout_path, method: :delete,  class: 'nav-link nav_link_logout' do %>
               <i class="fas fa-sign-out-alt"></i> ログアウト
             <% end %>  
           </li>
