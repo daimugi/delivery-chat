@@ -1,7 +1,5 @@
 <h1 class="text-center users_edit">ユーザー編集</h1>
 <% if logged_in? %>
-<div class="row">
-  <div class="col-sm-6 offset-sm-3">
     <%= form_with(model: @user, local: true) do |f| %>
     
       <div class="form-group">
@@ -24,10 +22,8 @@
         <%= f.file_field :image, class: 'form-control' %>
       </div>
       
-      <div class="users_edit_btn">
+      <div class="users_update_btn">
         <%= f.submit '更新する', class: 'btn btn-primary' %>
       </div>
     <% end %>  
-  </div>
-</div>
 <% end %>
