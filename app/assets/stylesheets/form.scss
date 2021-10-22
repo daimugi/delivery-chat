@@ -1,3 +1,7 @@
+.users_create_btn {
+  text-align: center;
+}
+
 .users_update_btn {
   text-align: center;
 }
@@ -6,11 +10,29 @@
   text-align: center;
 }
 
-.users_edit {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-  }
+.sessions_new_btn {
+  text-align: center;
+}
 
+.users_new {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.users_edit {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.posts_new {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.sessions_new {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
 
 @media (max-width: 576px) {
   .form-group {
@@ -32,15 +54,3 @@
     margin: 0 auto 1rem;
   }
 }
-
-// @media (max-width: 1000px) {
-//   .users_edit {
-//     font-size: 1.5rem;
-//   }
-// }
-
-// @media (min-width: 1000px) {
-//   .users_edit {
-//     font-size: 1.5rem;
-//   }
-// }
