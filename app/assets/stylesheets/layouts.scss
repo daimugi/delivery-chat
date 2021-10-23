@@ -221,8 +221,8 @@
 }
 
 @media (min-width: 576px) and (max-width: 1000) {
-  .nav_link_logout{
-    width: 20%;
-    
+  .navbar-brand {
+    // width: 15%;
+    // margin-right: 0;
   }
 }

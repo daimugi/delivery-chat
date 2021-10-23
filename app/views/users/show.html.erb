@@ -1,71 +1,75 @@
-<div class="parent_show">
-  <div class="user-show u_element">
-    <div class="show__face">
-      <% if @user.image? %>
-        <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
-      <% else %>
-        <%= image_tag ('images.png'), class: 'show__img', :alt => '/' %>
-      <% end %>
-      <div class="show__name"><%= @user.name %></div>
-    </div>
-    <div class="show__address">
-      <% if @user.address? %>
-        <p><i class="fas fa-home"></i> :　<%= @user.address %></p>
-      <% else %>
-        <p><i class="fas fa-home"></i> : 登録されていません</p>
-      <% end %>  
-    </div>
-    <div class="show__desc">
-      <% if @user.introduction? %> 
-        <p><i class="far fa-comment u_comment"></i> : <%= @user.introduction %></p>
-      <% else %>
-        <p><i class="far fa-comment u_comment"></i> : よろしくお願いします</p>
-      <% end %> 
-    </div>
-  </div>
-    
-    <% if logged_in? %>
-    <div class="user-map u_element">
-      <% if @user.address? %>
-        <% if current_user == @user %>
-          <p class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
+<div class="ps_parent">
+  <div class="parent_show">
+    <div class="user-show u_element">
+      <div class="show__face">
+        <% if @user.image? %>
+          <%= image_tag @user.image.url, class: 'show__img', :alt => '/' %>
         <% else %>
-          <p class="text-center">
-          あなたとの距離約<%= position(@user) %>　※距離は直線距離<br>
-          <i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
+          <%= image_tag ('images.png'), class: 'show__img', :alt => '/' %>
+        <% end %>
+        <div class="show__name"><%= @user.name %></div>
+      </div>
+      <div class="show__address">
+        <% if @user.address? %>
+          <p><i class="fas fa-home"></i> :　<%= @user.address %></p>
+        <% else %>
+          <p><i class="fas fa-home"></i> : 登録されていません</p>
         <% end %>  
-      <% end %>  
-        
-      <div id='map'></div>
-      <script>
-        let map;
+      </div>
+      <div class="show__desc">
+        <% if @user.introduction? %> 
+          <p><i class="far fa-comment u_comment"></i> : <%= @user.introduction %></p>
+        <% else %>
+          <p><i class="far fa-comment u_comment"></i> : よろしくお願いします</p>
+        <% end %> 
+      </div>
+    </div>
       
-        function initMap() {
-          geocoder = new google.maps.Geocoder()
+      <% if logged_in? %>
+      <div class="user-map u_element">
+        <!--<div class="user-map">-->
+        <% if @user.address? %>
+          <% if current_user == @user %>
+            <p class="text-center"><i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
+          <% else %>
+            <p class="text-center">
+            あなたとの距離約<%= position(@user) %>　※距離は直線距離<br>
+            <i class="fas fa-map-marker-alt"></i> Google Map　<%= @user.address %></p>
+          <% end %>  
+        <% end %>  
           
-          map = new google.maps.Map(document.getElementById('map'), {
-            // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
-            center: {
-              lat: gon.user.latitude,
-              lng: gon.user.longitude
-            },
-            zoom: 15,
-          });
-      
-          marker = new google.maps.Marker({
-            // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
-            position: {
-              lat: gon.user.latitude,
-              lng: gon.user.longitude
-            },
-            map: map
-          });
-        }
-      </script>
-      <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
-    </div> 
+        <div id='map'></div>
+        <script>
+          let map;
+        
+          function initMap() {
+            geocoder = new google.maps.Geocoder()
+            
+            map = new google.maps.Map(document.getElementById('map'), {
+              // コントローラーで定義した変数から緯度経度を呼び出し、マップの中心に表示
+              center: {
+                lat: gon.user.latitude,
+                lng: gon.user.longitude
+              },
+              zoom: 15,
+            });
+        
+            marker = new google.maps.Marker({
+              // コントローラーで定義した変数から緯度経度を呼び出し、マーカーを立てる
+              position: {
+                lat: gon.user.latitude,
+                lng: gon.user.longitude
+              },
+              map: map
+            });
+          }
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnP_vqUqu66FdTRjj4xLgVx9wABrO4amQ&callback=initMap" async defer></script>
+      </div> 
+    </div>
+  <!--</div>  -->
+  <% end %>
 </div>  
-<% end %>
 
 
   <div class="user-post">
